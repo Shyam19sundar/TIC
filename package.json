@@ -23,5 +23,5 @@
     "mongoose": "^5.11.18",
     "nodemailer": "^6.5.0"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3000"
 }
