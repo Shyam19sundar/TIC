@@ -1,0 +1,253 @@
+.res_total * {
+  background: transparent;
+}
+
+.codingSection{
+  background: white !important;
+}
+
+.res_total {
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  width: -webkit-fill-available !important;
+}
+.resources {
+  width: 100%;
+  height: 100%;
+}
+.resources > div {
+  width: 100% !important;
+}
+.whole_res {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+}
+.container_res {
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+}
+.icons_font {
+  font-size: 3vw;
+  padding: 0.3vw; 
+}
+#upButton {
+  position: absolute;
+  margin-right: 1vw;
+  background-color: rgb(1, 12, 38);
+  border-radius: 50%;
+  margin-bottom: 2vw;
+  right: 0;
+  bottom: 0;
+}
+.model {
+  flex: 0.5;
+  flex: 1 1 auto;
+  /* margin: 2vw;
+  margin-right: 0vw; */
+  background-color: #baf8f8;
+  height: 100vh;
+  width: 50vw;
+}
+.res_intro {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: center;
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #344a86; */
+  background-color: rgb(1, 12, 38);
+  color: #9ddaca;
+}
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Kavivanar&family=Libre+Baskerville:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Libre+Baskerville:wght@700&display=swap");
+.heading {
+  font-size: 5vw;
+  font-family: "RocknRoll One", sans-serif;
+  color: white;
+}
+.descrip {
+  flex: 0.5;
+  height: 100vh;
+  width: 50vw;
+  /* margin: 2vw;
+  margin-left: 0vw; */
+}
+.caption {
+  font-size: 1.5vw;
+  font-family: "Noto Sans", sans-serif;
+  color: #dedede;
+}
+.resource_three {
+  display: flex;
+}
+#resource_buttons {
+  margin: 3vw;
+  font-family: "Poppins", sans-serif;
+  color: black;
+  background-color: #85aeca;
+  padding: 3px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.arduino_button {
+  margin-left: 10vw;
+}
+.icons_button4 {
+  font-size: 70px;
+  position: relative;
+  cursor: pointer;
+  /* animation: myfirst 4s infinite linear; */
+}
+/* @keyframes myfirst {
+  0% {
+    top: 150px;
+  }
+  25% {
+    top: 250px;
+  }
+  50% {
+    top: 150px;
+  }
+  75% {
+    top: 250px;
+  }
+  100% {
+    top: 150px;
+  }
+} */
+.content_arduino {
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+}
+
+.descrip1 {
+  flex: 0.5;
+  height: 100vh;
+  width: 50vw;
+  /* margin: 2vw;
+  margin-right: 0vw;*/
+}
+.model1 {
+  flex: 0.5;
+  /* margin: 2vw;
+  margin-left: 0vw; */
+  background-color: #007272;
+  height: 100vh;
+  width: 50vw;
+}
+.res_total::-webkit-scrollbar {
+  display: none;
+}
+.res_total {
+  -ms-overflow-style: none; /* IE 11 */
+  scrollbar-width: none;
+}
+
+.content_arduinoMob {
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+  background-image: linear-gradient(#00a5a6, #006769);
+}
+.content_nodeMCUMob {
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+}
+.content_raspberryPiMob {
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+}
+/* .model_arduino {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+} */
+/* .presentModel {
+  flex: 0.8;
+}
+.nextModel {
+  flex: 0.2;
+  color: #ecf1f1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* .arduinoDesc_Mob {
+  height: 100vh;
+  background-color: yellow !important;
+  width: 100%;
+} */
+@media (max-width: 600px) {
+  .content_arduino,
+  .content_nodeMCU,
+  .content_raspberryPi {
+    display: none;
+  }
+  .res_intro {
+    scroll-snap-align: center;
+    scroll-behavior: smooth;
+    height: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .wholeScreen {
+    height: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+}
+@media (min-width: 601px) {
+  .content_arduinoMob,
+  .content_nodeMCUMob,
+  .content_raspberryPiMob {
+    display: none;
+  }
+}
+.descrip_Mobile {
+  width: 100%;
+  /* height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100); */
+}
+.descrip_Mobile > div {
+  width: 100%;
+}
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  display: none;
+}
+.head {
+  display: flex;
+  align-items: center;
+  margin-top: 3.5vw;
+  justify-content: center;
+  font-size: large;
+  color: #ecf1f1;
+}

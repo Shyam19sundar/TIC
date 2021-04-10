@@ -1,0 +1,103 @@
+.top-main{
+    height: 100%;
+    width: 100%;
+    color: white;
+    padding-top:25px;
+    background-color: rgb(1, 12, 38);
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.WEBcluster{
+   margin-left:10%;
+   width: 100%;
+   display: flex;
+   flex-wrap:wrap;
+   justify-content:space-evenly;
+  
+    
+  
+     
+} 
+ .clustercard{
+    
+    transition: 0.3s;
+    width:30%;
+    height:50vh;
+    position: relative;
+    top:50px;
+    margin: 2px;
+}
+.clustercard > img:hover {
+    box-shadow: 0 10px 20px 0 rgba(235, 214, 29, 0.2);
+  }
+ 
+  .container1 {
+      border: 2px solid red;
+      width:200px;
+      height:150px;
+      position: absolute;
+      right:85%;
+      top: 50%;
+      z-index: 1;
+      color: white;
+      background-color: rgb(25, 48, 77);
+      padding-left: 10px;
+         
+  }
+.IOTmembers{
+    margin-top: 25px;
+} 
+
+.IOTcluster{
+    margin-left:10%;
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+ 
+}
+
+.icon{
+    display: flex;
+    justify-content:space-evenly;
+}
+
+.Digitalmarketing{
+    margin-top: 25px;
+}
+
+.Digitalcluster{
+    margin-left:10%;
+    width: 100%;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+}
+
+@media(max-width:768px){
+    .clustercard{
+       width: 45%;
+        
+    }
+    .clustercard>img{
+        width: 100px !important;
+        height: 150px !important;
+    }
+    .container1{
+        margin-left: 20%;
+        width:100px;
+        height: 100px;
+        position: absolute;
+        top: 115px;
+        left:-75px;
+         }
+         .clustercard>h4,b,p{
+             font-size:x-small;
+         }
+         .icon{
+            margin: -10px;
+            font-weight: 100 !important;
+            font-size:x-small !important;
+         }
+}
+ 

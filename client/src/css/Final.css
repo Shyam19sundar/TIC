@@ -1,0 +1,332 @@
+.main{
+    overflow-x: hidden;
+    /* overflow-y: hidden; */
+    padding-top: 100px;
+}
+
+.main *{
+  background: transparent;
+}
+
+.contact_navbar{
+    background-color:rgb(0, 204, 255);
+    width: 100vw;
+    height: 7vh;
+    color: white;
+    padding: 10px;
+}
+.contact_left{
+    width: 50vw;
+    height: 93vh;
+}
+.contact_us{
+    font-size: 7vh;
+    color: white;
+    padding-top: 50px;
+    padding-left: 200px;
+   
+}
+.contact_newsletter{
+    margin-top: 100px;
+    margin-left: 80px;
+    color: white;
+  }
+  .contact_input>h3{
+    margin-top: 55px;
+    margin-bottom: 10%;
+   text-align: center;
+  }
+  .contact_input{
+    border: 2px solid white;
+    width: 33vw;
+    height: 60vh;
+    border-radius: 15px;
+    margin-left: 10px;
+    margin-top: -40px;
+  }
+  .contact_input>input{
+    margin-top:25px;
+    margin-left:100px;
+     width: 20vw;
+    text-align: center;
+    border-radius: 10px;
+  }
+  .contact_input>button{
+    margin-top: 35px;
+    margin-left: 180px;
+    width: 8vw;
+    text-align: center;
+    border-radius: 20px;
+    background-color:rgb(118, 174, 196);
+  
+  }
+  .contact_input>p{
+    text-align: center;
+    padding-top: 45px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .contact_first{
+      display: flex;
+      color: white;
+  }
+  .contact_right{
+    width: 40vw;
+    height: 93vh;
+    height: fit-content;
+  }
+  #contact_icon{
+    margin-top: 25px;
+    margin-left: 75px;
+    
+  
+  }
+  
+  #contact_icon>span,b{
+    margin-right: 18px;
+    font-size:25px;
+  
+  }
+  .vr{
+    border-left: 3px solid white;
+  
+  }
+  #contact_icon>a{
+     
+    margin: 20px;
+   
+  }.iconimage{
+    width: 60px ;
+  }
+  .contact_svg>img{
+      width: 30vw;
+      height: 50vh;
+      margin-top:50px;
+      margin-left: 100px;
+      border-radius: 20%;
+     
+  }
+  
+  .contact_middle{
+      width: 100vw;
+      height: 20vh;
+      background-color:rgb(127, 136, 136);
+      color: white;
+  }
+  .contact_address{
+      display: flex;
+      justify-content:space-around;
+      padding-top: 10px;
+  }
+  .contact_address>div{
+      font-size: x-large;
+  }
+  .email{
+      font-size: 40px;
+      margin-right:5px ;
+  }
+  .contact_email>p{
+      margin-left: 35px;
+  }
+  .location{
+    font-size: 35px;
+    margin-left:-20px ;
+  }
+  .contact_details{
+      display: flex;
+      justify-content: space-evenly;
+      width: 100vw;
+      height: 70vh;
+      margin-top: 100px;
+      color: white;
+    }
+    .contact_footer{
+        text-align: center;
+        color: white;
+    }
+    .contact_profile1>img{
+        border-radius: 50%;
+        
+      }
+      .contact_profile2>img{
+        border-radius: 50%;
+        
+      }
+      .contact_profile1{
+        width: 20vw;
+        height: fit-content;
+        
+        text-align: center;
+        margin: 25px;
+      }
+      .contact_profile1>div{
+        padding-top: 15px;
+       font-size: large;
+       font-weight: 700;
+      }
+      .contact_profile2>div{
+        padding-top: 15px;
+        padding-left: 10px;
+        font-size: large;
+        font-weight: 700;
+      }
+      
+      .contact_profile2{
+        width: 20vw;
+        height: fit-content;
+        padding-left: 35px;
+        margin: 25px;
+        text-align: center;
+      }
+      .contact_profile2>h4{
+        padding-top: 15px;
+      }
+    
+      @media(max-width:768px){
+          .main{
+              width: 100%;
+              height: 100%;
+              
+          }
+          .contact_navbar{
+            width: 100%;
+          }
+          .contact_first{
+              display: flex;
+              flex-direction: column-reverse;
+          }
+          .contact_right{
+            width: 100%;
+            height: 100%;
+          }
+          .contact_left{
+            width: 100%;
+          }
+          .contact_us{
+            width: fit-content;
+            height: fit-content;
+            margin-left: -120px;
+          }
+          #contact_icon{
+            margin-top: 80px;
+              margin-left: -10px;  }
+          .iconimage{
+            width: 35px ;
+          }
+          #contact_icon>span,b{
+            margin-right: 10px;
+            font-size:large;
+            margin-left: 15px;
+          
+          }
+          .social{
+            font-size: x-large;
+           
+          }
+         
+          .vr{
+            border-left: 3px solid white;
+            
+          }
+          #contact_icon>a{
+           
+            margin: 10px;
+           
+          }
+          .contact_svg>img{
+              width:340px;
+              margin-left: 15px;
+          }
+          .contact_newsletter{
+              margin-left: 15px;
+          }
+         .contact_input{
+            width: 320px ;
+            height: 380px;
+         }
+         .contact_input>h3{
+           font-size: large;
+           padding-left: 15px;
+         }
+         .contact_input>input{
+          margin-top:25px;
+          margin-left:30px;
+           width: 250px;
+          text-align: center;
+          border-radius: 10px;
+        }
+        .contact_input>button{
+          margin-top: 35px;
+          margin-left: 110px;
+
+          width: fit-content;
+          text-align: center;
+          border-radius: 20px;
+          background-color:rgb(118, 174, 196);
+        
+        }
+        .contact_input>p{
+          width: fit-content;
+          margin-left: 5px;
+          padding-left: 10px;
+          padding-right: 10px;
+
+        }
+        .contact_middle{
+          width: 100%;
+          margin-top: -50px;
+        }
+        .email{
+         font-size: small
+        }
+        .location{
+          font-size: small
+        }
+       
+      .contact_address{
+          display: flex;
+          justify-content:space-around;
+          padding-top: 35px;
+      }
+      .contact_input > p{
+        padding-top: 10px !important;
+      }
+
+      .contact_address>div{
+        font-size:medium;
+       }
+      .contact_email{
+        width: 180px;
+        padding-right: 20px;
+       }
+       .contact_main{
+        width: 150px;
+        margin-left: 10px;
+       }
+       .contact_main>p{
+          width: 120px;
+          margin-left: 5px;
+        }
+        .contact_details{
+          margin-left: -50px;
+        }
+        .contact_profile1>div, .contact_profile1 > p{
+          width:150px;
+          height:fit-content;
+          margin-left: -0px;
+        }
+        .contact_profile2{
+          margin-left: -10px;
+        }
+        .contact_profile2>div, .contact_profile2 > p{
+          width:150px;
+          height:fit-content;
+          margin-left: 5px;
+         
+        }
+        .contact_footer{
+          margin-left: 120px;
+        }
+       
+      }

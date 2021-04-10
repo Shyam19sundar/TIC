@@ -1,0 +1,80 @@
+.register__events{
+    padding: 10px;
+    height: 100vh;
+}
+
+.register__events form{
+    height: 90%;
+}
+
+.register__events > form > h3{
+    margin-top: 2% !important;
+    font-weight: 750;
+    width: fit-content;
+    margin: auto;
+} 
+
+.events-registerCont{
+    display: flex;
+    height: 100%;
+}
+
+.events-registerLeft , .events-registerRight{
+    flex: 0.5;
+    height: 80%;
+}
+
+.events-registerLeft > div , .events-registerRight > div {
+    width: fit-content;
+    margin: auto;
+}
+
+.events-registerLeft > div div , .events-registerRight > div div{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.events-registerPreview{
+    height: 50%;
+}
+
+.events-registerPreview > img{
+    box-shadow: -1px 2px 25px 5px rgb(194, 194, 194);
+    margin-left: 10%;
+}
+
+/* .register__events img{
+    width: 150px;
+    height: 150px;
+} */
+
+.register__events button{
+    margin-left: 75%;
+    transform: translateX(-75%);
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+.requirements{
+    display: flex;
+}
+
+.register__events input {
+    border-radius: 5px;
+    min-width: 250px;
+    height: 40px;
+    outline: 0;
+}
+
+.register__events div{
+    padding: 20px 20px 0;
+}
+
+#loadingUpload{
+    display: none;
+}

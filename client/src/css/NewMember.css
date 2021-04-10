@@ -1,0 +1,49 @@
+.new__member {
+    height: 100vh;
+    padding: 20px;
+}
+
+.new__member > form{
+    display: flex;
+    margin-top: 5%;
+    height: 80%;
+    justify-content: space-around;
+}
+
+/* .new__member form div{
+    flex: 0.5;
+} */
+
+.new__member > p{
+    font-size: 1.5rem;
+    font-weight: 700;
+    width: fit-content;
+    margin: auto;
+}
+
+.new__member button{
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 3px 10px;
+}
+
+.new__member > form > div > div{
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.new__member img {
+    width: 300px;
+    height: 300px;
+}
+
+
+.cluster-choice{
+    margin-top: 30px;
+}

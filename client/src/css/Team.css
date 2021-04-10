@@ -1,0 +1,126 @@
+.full-teams{
+    height: 40vh;
+    display: flex;
+    margin-bottom: 10vh;
+}
+
+.full-teams > h3{
+    /* flex: 0.2; */
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    width: 10vw;
+    /* border-left: 2px solid white; */
+    height: 100%;
+    text-align: center;
+}
+
+.team-members{
+    border-left: 1px solid white;
+    display: flex;
+    padding-left: 30px;
+    flex: 0.9;
+    cursor: grab;
+}
+
+.team-members *{
+    outline: none;
+}
+
+.team-members > div{
+    margin-left: 3%;
+    /* height: fit-content; */
+    align-self: center;
+    height: 100%;
+}
+
+.jIRtgb{
+    background-color: #010c26 !important;
+}
+
+.single-memberFull{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 30px;
+    margin: auto;
+    background-color: #6eaeda;
+    border-radius: 10px;
+}
+
+.single-memberFull > img{
+    /* margin: auto; */
+    /* margin-left: 50%;
+    transform: translateX(-50%); */
+    border-radius: 50%;
+    margin-bottom: 20px !important; 
+}
+
+.single-memberFull > p{
+    text-align: center;
+    font-family: "Poppins" , sans-serif;
+    font-size: 20px;
+    /* margin-bottom: 30px !important; */
+    background: transparent;
+    width: fit-content;
+    /* margin: auto; */
+    color: black;
+}
+
+.single-memberFull  span{
+    font-size: 15px;
+    font-family: "Poppins" , sans-serif;
+    background: transparent;
+}
+
+.single-memberFull > div {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10% !important;
+}
+
+.single-memberFull div{
+    background: transparent;
+}
+
+/* .single-memberFull > div a{
+    margin-right: 10px;
+} */
+
+.cluster-icons{
+    display: flex;
+    height: fit-content;
+    /* flex-direction: column; */
+}
+
+.cluster-icons a{
+    height: fit-content;
+    margin-right: 10px;
+}
+
+.cluster-icons  .MuiSvgIcon-root{
+    font-size: 30px;
+}
+
+.cluster-icons *{
+    background: #6eaeda;
+}
+
+.jIRtgb{
+    font-size: 15px !important;
+}
+
+/* .team-members .rec-carousel-item{
+    width: 30%;
+}
+
+.team-members .rec-carousel-item > div{
+    width: 100%;
+} */

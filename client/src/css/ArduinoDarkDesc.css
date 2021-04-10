@@ -1,0 +1,261 @@
+.container_ArdDesc {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.dot1,
+.dot2,
+.dot3 {
+  height: 1vw;
+  width: 1vw;
+  border-radius: 50%;
+  margin-left: 5px;
+  display: inline-block;
+}
+/* .square {
+  height: 40px;
+  width: 40px;
+  background-color: #00bbbc;
+  display: inline-block;
+}
+.icons_button2 {
+  margin-top: 7px;
+  font-size: 27px;
+} */
+
+.icons_button2 {
+  font-size: 1.5vw;
+  margin-bottom: 0.3vw;
+}
+.square {
+  height: 2.3vw;
+  width: 2.3vw;
+  background-color: #00bbbc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.icons {
+  width: 100%;
+  display: flex;
+}
+.four {
+  flex: 0.95;
+}
+.serial {
+  flex: 0.05;
+  width: 100%;
+  position: relative;
+}
+.icons_button3 {
+  font-size: 1.5vw;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+.dot1 {
+  background-color: #ff625a;
+}
+.dot2 {
+  background-color: #fec12d;
+}
+.dot3 {
+  background-color: #2bc941;
+}
+
+#topBar {
+  user-select: none;
+  color: #000;
+  font-size: 1vw;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(#424242, #373737);
+  width: 100%;
+  flex: 0.05;
+  justify-content: center;
+  position: relative;
+  color: white;
+}
+.MuiIconButton-root {
+  padding-right: 7px !important;
+  padding-left: 7px !important;
+  padding-bottom: 7px !important;
+  padding-top: 7px !important;
+}
+.macDots {
+  position: absolute;
+  display: flex;
+  left: 0;
+  margin-left: 8px;
+  flex: 0.1;
+}
+.topBar_title {
+  width: 100%;
+  flex: 0.9;
+  display: flex;
+  align-items: center;
+}
+.topIcons1 {
+  width: 100%;
+  background-color: #21222c;
+  display: flex;
+  align-items: center;
+  flex: 0.06;
+}
+.icons_button {
+  font-size: 2.2vw;
+}
+.tabSection1 {
+  width: 100%;
+  display: flex;
+  flex: 0.06;
+  background-color: #191a21;
+}
+/* #tabs1 {
+  margin-top: 10px;
+  flex: 0.15;
+  cursor: pointer;
+  height: 38px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  user-select: none;
+  width: fit-content;
+  margin-left: 10px;
+  margin-right: 3px;
+  color: white;
+  background-color: #282a36;
+  font-family: monospace;
+  font-size: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tabs2,
+#tabs3 {
+  user-select: none;
+  margin-top: 10px;
+  color: white;
+  cursor: pointer;
+  flex: 0.15;
+  height: 38px;
+  font-family: monospace;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #009c9b;
+  width: fit-content;
+  margin-left: 3px;
+  margin-right: 3px;
+  display: flex;
+  font-size: 1vw;
+  align-items: center;
+  justify-content: center;
+} */
+#tabs1 {
+  margin-top: 1vw;
+  flex: 0.15;
+  cursor: pointer;
+  height: 2.75vw;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  user-select: none;
+  width: fit-content;
+  margin-left: 10px;
+  margin-right: 3px;
+  color: white;
+  background-color: #282a36;
+  font-family: monospace;
+  font-size: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#tabs2,
+#tabs3 {
+  user-select: none;
+  margin-top: 1vw;
+  color: white;
+  cursor: pointer;
+  flex: 0.15;
+  height: 2.75vw;
+  font-family: monospace;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #009c9b;
+  width: fit-content;
+  margin-left: 3px;
+  margin-right: 3px;
+  display: flex;
+  font-size: 1vw;
+  align-items: center;
+  justify-content: center;
+}
+
+#codingSection::-webkit-scrollbar {
+  width: 5px;
+}
+#codingSection::-webkit-scrollbar-thumb {
+  background: #00a5a6;
+  border-radius: 10px;
+}
+#codingSection::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+#codingSection {
+  width: 100%;
+  overflow-y: scroll;
+  user-select: none;
+  flex: 0.68;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  background-color: #282a36;
+}
+.scrollable_element {
+  scrollbar-color: red yellow;
+}
+.text_content {
+  padding: 2vw;
+  font-family: monospace;
+  font-size: 1.2vw;
+}
+#footPart {
+  width: 100%;
+  flex: 0.06;
+  background-color: #191a21;
+}
+.footPart_Black {
+  width: 100%;
+  flex: 0.1;
+  color: #d8d8d8;
+  background-color: black;
+}
+#footPart_DarkG {
+  width: 100%;
+  flex: 0.04;
+  background-color: #21222c;
+}
+.toast1 {
+  margin: 1.4vw;
+  padding: 0.2vw;
+  padding-left: 0.8vw;
+  padding-right: 0.8vw;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  height: 2vw;
+  background-color: #323232;
+  color: #f6f6f6;
+  z-index: 10;
+}
+#tabs2:hover,
+#tabs3:hover {
+  background-color: #3b3d52;
+}
+#alink_node {
+  font-size: 1.2vw;
+}

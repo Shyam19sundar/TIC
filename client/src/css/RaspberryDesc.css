@@ -1,0 +1,239 @@
+.container_RaspDesc {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.topbar_rasp {
+  user-select: none;
+  color: #000;
+  font-size: 1vw;
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  background-image: linear-gradient(#f6f6f6, hsl(0, 0%, 85%));
+  width: 100%;
+  flex: 0.05;
+  justify-content: center;
+  position: relative;
+}
+.coding {
+  flex: 0.91;
+  background-color: #f0f0f0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.code_part {
+  flex: 0.6;
+  margin: 0.5vw;
+  margin-top: 0.1vw;
+  margin-left: 1vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.tab_section {
+  flex: 0.1;
+  width: 100%;
+  display: flex;
+}
+.tabs1_rasp,
+.tabs4_rasp {
+  margin-top: 10px;
+  flex: 0.15;
+  height: 2.2vw;
+  font-size: 0.9vw;
+  user-select: none;
+  width: fit-content;
+  background-color: white;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 0.01px solid #b5b5b5;
+  border-right: 0.001px solid #b5b5b5;
+  border-bottom: 0px solid #b5b5b5;
+}
+.tabs2_rasp,
+.tabs3_rasp {
+  user-select: none;
+  margin-top: 10px;
+  flex: 0.15;
+  border: 1px solid #b5b5b5;
+  height: 2.2vw;
+  background-color: #dcdad6;
+  width: fit-content;
+  cursor: pointer;
+  border-left: 0.001px solid #b5b5b5;
+  border-right: 0.001px solid #b5b5b5;
+  border-bottom: 0px solid #b5b5b5;
+  font-size: 0.9vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabs2_rasp:hover,
+.tabs3_rasp:hover {
+  background-color: #e5e6eb;
+}
+
+.code_section {
+  flex: 0.9;
+  border: 1px solid black;
+}
+.flex_code {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  user-select: none;
+  overflow: auto;
+}
+
+.inside_code {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  min-height: min-content;
+  background-color: white;
+}
+.grey_part {
+  flex: 0.07;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1vw;
+  font-size: 1vw;
+  align-items: center;
+  color: #9a9695;
+  height: 100%;
+  background-color: #e0e0e0;
+}
+.white_part {
+  flex: 0.93;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1vw;
+  padding-left: 1vw;
+  font-size: 1vw;
+  overflow-y: hidden;
+}
+.shell_part {
+  flex: 0.4;
+  margin: 0.5vw;
+  margin-left: 1vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.tab_section {
+  flex: 0.05 !important;
+}
+.white_shell {
+  flex: 0.95 !important;
+  height: 100%;
+  background-color: white;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.topIcons_Rasp {
+  width: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  flex: 0.04;
+  padding-left: 1vw;
+}
+.icons_button4 {
+  font-size: 20px;
+}
+/* img {
+  width: 7vw;
+  height: 6vh;
+} */
+#text_rasp {
+  font-family: monospace;
+  font-size: 1.15vw;
+  font-family: monaco, "andale mono", "lucida console", "courier new", monospace;
+}
+.grey_part > div {
+  font-family: monospace;
+  font-size: 1.15vw;
+}
+
+@media (min-width: 900px) and (max-width: 1100px) {
+  #text_rasp {
+    font-family: monospace;
+    font-size: 1.4vw;
+  }
+  .grey_part > div {
+    font-family: monospace;
+    font-size: 1.4vw;
+  }
+  #alink {
+    font-size: 1.4vw;
+  }
+}
+@media (min-width: 700px) and (max-width: 900px) {
+  #text_rasp {
+    font-family: monospace;
+    font-size: 1.6vw;
+  }
+  .grey_part > div {
+    font-family: monospace;
+    font-size: 1.6vw;
+  }
+  #alink {
+    font-size: 1.6vw;
+  }
+}
+@media (min-width: 601px) and (max-width: 700px) {
+  #text_rasp {
+    font-family: monospace;
+    font-size: 1.7vw;
+  }
+  .grey_part > div {
+    font-family: monospace;
+    font-size: 1.8vw;
+  }
+  #alink {
+    font-size: 1.7vw;
+  }
+}
+/*@media (min-width: 600px) and (max-width: 899px) {
+  #text_rasp {
+    font-family: monospace;
+    font-size: 1.7vw;
+  }
+  .grey_part > div {
+    font-family: monospace;
+    font-size: 1.7vw;
+  }
+}
+@media (min-width: 1301px) and (max-width: 1499px) {
+  #text_rasp {
+    font-family: monospace;
+    font-size: 1.3vw;
+  }
+  .grey_part > div {
+    font-family: monospace;
+    font-size: 1.3vw;
+  }
+}
+
+@media (min-width: 1500px) {
+  #text_rasp {
+    font-family: monospace;
+    font-size: 1vw;
+  }
+  .grey_part > div {
+    font-family: monospace;
+    font-size: 1vw;
+  }
+} */

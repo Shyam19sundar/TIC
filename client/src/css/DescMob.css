@@ -1,0 +1,369 @@
+/* mobile Arduino */
+.mobView {
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+}
+.full_arduino {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+}
+.arduino_head {
+  flex: 0.075;
+  width: 100%;
+  background-image: linear-gradient(#00a5a6, #006769);
+  display: flex;
+  align-items: center;
+  color: #ecf1f1;
+  font-size: large;
+  justify-content: center;
+}
+.arduino_tab {
+  flex: 0.07;
+  display: flex;
+  width: 100%;
+  background-color: #00a5a6;
+  position: relative;
+}
+.tab_ArduinoMob {
+  position: relative;
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+/* .tabMob1 {
+  background-color: white;
+  width: fit-content;
+  padding: 3px;
+  padding-top: 2px;
+  margin-left: 2vw;
+  cursor: pointer;
+  height: fit-content;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  vertical-align: bottom;
+} */
+.tabMob2 {
+  height: fit-content;
+  margin-left: 2vw;
+  cursor: pointer;
+  padding-top: 2px;
+  vertical-align: bottom;
+  background-color: #47b9be;
+  flex: 0.5;
+  text-align: center;
+  margin-right: 2vw;
+  width: fit-content;
+  padding: 3px;
+  padding-right: 8px;
+  padding-left: 8px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.tabMob1 {
+  height: fit-content;
+  margin-left: 2vw;
+  cursor: pointer;
+  flex: 0.5;
+  text-align: center;
+
+  padding-top: 2px;
+  vertical-align: bottom;
+  background-color: white;
+
+  width: fit-content;
+  padding: 3px;
+  padding-right: 8px;
+  padding-left: 8px;
+
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.arduino_code {
+  flex: 0.705;
+  width: 100%;
+  background-color: white;
+}
+.text_arduino {
+  margin-top: 2vw;
+  padding: 2vw;
+  font-family: monospace;
+  font-size: large;
+}
+.arduino_foot {
+  flex: 0.15;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+.footcol1 {
+  flex: 0.3;
+  background-color: #00a5a6;
+}
+.footcol2 {
+  flex: 0.5;
+  background-color: #000;
+}
+.footcol3 {
+  flex: 0.2;
+  background-color: #006769;
+}
+.descrip_Mobile > div {
+  width: 100%;
+}
+/* mobile nodEMCU */
+.full_nodeMCU {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+}
+.nodeMCU_head {
+  flex: 0.075;
+  width: 100%;
+  background-image: linear-gradient(#424242, #373737);
+  display: flex;
+  align-items: center;
+  color: #ecf1f1;
+  font-size: large;
+  justify-content: center;
+}
+.nodeMCU_tab {
+  flex: 0.07;
+  display: flex;
+  width: 100%;
+  background-color: #000;
+  position: relative;
+}
+.tab_nodeMCUMob {
+  position: relative;
+  justify-content: space-between;
+  display: flex;
+  display: flex;
+  width: 100%;
+
+  position: absolute;
+  bottom: 0;
+}
+/* .tabMob1 {
+  background-color: white;
+  width: fit-content;
+  padding: 3px;
+  padding-top: 2px;
+  margin-left: 2vw;
+  cursor: pointer;
+  height: fit-content;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  vertical-align: bottom;
+} */
+.tabMob2_nodeMCU {
+  height: fit-content;
+  margin-left: 2vw;
+  cursor: pointer;
+  padding-top: 2px;
+  vertical-align: bottom;
+  background-color: #009c9b;
+  width: fit-content;
+  padding: 3px;
+  flex: 0.5;
+  text-align: center;
+
+  color: white;
+  padding-right: 8px;
+  padding-left: 8px;
+  margin-right: 2vw;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.tabMob1_nodeMCU {
+  height: fit-content;
+  margin-left: 2vw;
+  flex: 0.5;
+  text-align: center;
+  cursor: pointer;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 2px;
+  vertical-align: bottom;
+  background-color: #282a36;
+  color: white;
+  width: fit-content;
+  padding: 3px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.nodeMCU_code {
+  flex: 0.705;
+  width: 100%;
+  background-color: #282a36;
+}
+.text_nodeMCU {
+  margin-top: 2vw;
+  padding: 2vw;
+  font-family: monospace;
+  font-size: large;
+}
+.nodeMCU_foot {
+  flex: 0.15;
+  width: 100%;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+}
+.footcol1_nodeMCU {
+  flex: 0.3;
+  background-color: #191a21;
+}
+.footcol2_nodeMCU {
+  flex: 0.5;
+  background-color: #000;
+}
+.footcol3_nodeMCU {
+  flex: 0.2;
+  background-color: #21222c;
+}
+/* mobile RaspberryPi */
+.full_raspberryPi {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+}
+.raspberryPi_head {
+  flex: 0.06;
+  width: 100%;
+  background-image: linear-gradient(#f6f6f6, #d8d8d8);
+  display: flex;
+  align-items: center;
+  color: #000;
+  font-size: large;
+  justify-content: center;
+}
+.raspberryPi_tab {
+  flex: 0.07;
+  /* display: flex; */
+  width: 100%;
+  background-color: #f0f0f0;
+  position: relative;
+}
+.tab_raspberryPiMob {
+  position: relative;
+  justify-content: space-between;
+  display: flex;
+  /* display: flex;
+  width: 100%; */
+
+  position: absolute;
+  bottom: 0;
+}
+/* .tabMob1 {
+  background-color: white;
+  width: fit-content;
+  padding: 3px;
+  padding-top: 2px;
+  margin-left: 2vw;
+  cursor: pointer;
+  height: fit-content;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  vertical-align: bottom;
+} */
+.tabMob2_raspberryPi {
+  height: fit-content;
+  /* margin-left: 2vw; */
+  cursor: pointer;
+  padding-top: 2px;
+  vertical-align: bottom;
+  background-color: #dcdad6;
+  width: fit-content;
+  padding: 3px;
+
+  /* flex: 0.5; */
+  text-align: center;
+
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 2vw;
+  /* border-top-left-radius: 5px;
+  border-top-right-radius: 5px; */
+}
+.tabMob1_raspberryPi {
+  height: fit-content;
+  /* margin-left: 2vw;
+  
+  flex: 0.5; */
+
+  text-align: center;
+  cursor: pointer;
+  padding-right: 8px;
+  padding-left: 8px;
+  padding-top: 2px;
+  vertical-align: bottom;
+  background-color: #fff;
+  color: black;
+  width: fit-content;
+  padding: 3px;
+  /* border-top-left-radius: 5px;
+  border-top-right-radius: 5px; */
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.raspberryPi_code {
+  flex: 0.72;
+  width: 100%;
+  background-color: white;
+}
+.text_raspberryPi {
+  font-family: monospace;
+  font-size: large;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+.numbering__rasp {
+  flex: 0.1;
+  padding-top: 3.5vw;
+  color: #9a9695;
+  height: 100%;
+  background-color: #e0e0e0;
+  text-align: center;
+}
+.info__rasp {
+  flex: 0.9;
+  padding-left: 2vw;
+  padding-top: 3.5vw;
+  padding-right: 1vw;
+}
+.raspberryPi_foot {
+  flex: 0.15;
+  width: 100%;
+  background-color: #dcdad6;
+  display: flex;
+  flex-direction: column;
+}
+.footcol1_raspberryPi {
+  flex: 0.3;
+  background-color: #f0f0f0;
+}
+.footcol2_raspberryPi {
+  flex: 0.5;
+  background-color: #aaaaaa;
+}
+.footcol3_raspberryPi {
+  flex: 0.2;
+  background-color: #e0e0e0;
+}

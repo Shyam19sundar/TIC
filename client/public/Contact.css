@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&family=RocknRoll+One&display=swap');
+.main{
+  background-color:rgb(1, 12, 38);
+  height:100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  background-color:rgb(1, 12, 38);
+  color:white;
+}
+.main>h3{
+  font-family: 'RocknRoll One', sans-serif;
+}
+.main>p{
+  font-family: 'Poppins', sans-serif;
+font-family: 'RocknRoll One', sans-serif;
+
+}
+
+.contact{
+  
+   padding-top: 10%;
+  display: flex;
+    color: white;
+}
+.contact__right{
+ 
+  width:100%;
+  height: 100%;
+  margin-left: 40%;
+}
+.contact__right h1{
+  padding-top: 35px;
+}
+.contact__left{
+  width: 100%;
+  height: 100%;
+
+}
+
+.contact__left h3{
+      
+       padding: 25px;
+}
+.contact__left input{
+   margin: 20px;
+   height: 25px;
+   width: 75%;
+   text-align: center;
+}
+.contact__left button{
+  margin-top: 40px;
+  margin-left:120px;
+   width: 100px;
+   height: 50px;
+   border-radius: 25px;
+   border: blue;
+  font-size: medium;
+  font-weight: bold;
+ 
+  
+ }
+
+
+
+.contact__right img {
+  padding-top: 25px;
+  margin-right: 35px;
+}
+.contact__footer1  {
+  position: absolute;
+  left:35%;
+  bottom: 0;
+  text-align: center;
+  color: white;
+  
+  }
+
+.contact__footer2{
+  display: none;
+}
+
+@media(max-width:768px){
+
+  .facultylist{
+    flex-direction: column;
+    margin-left: 50px;
+    margin-bottom:60%;
+    }
+  .facultyperson1{
+    position: absolute;
+   top: 50px;
+   left: -100px;
+         
+  }
+  .facultycard2{
+    position: relative;
+    top: 150px;
+    left: 25px;
+  }
+  
+  .facultyperson2{
+   position: absolute;
+    left: -100px;
+    margin-top: 100px;
+    
+      
+   }
+  .contact{
+   flex-direction: column;
+   padding: 30px;
+   width:100vw !important;
+   height:100vh ;
+    }
+  .contact__left button{
+     margin-left:4em;
+
+     }
+.contact__left>h3{
+  margin-top: 25px;
+}
+     
+  .contact__right img {
+      margin-top: -30px;
+      margin-right:25px;
+   }
+    
+     .contact__right{
+     
+      margin-left:1px;
+      padding-bottom: -10px;
+      
+       }
+       .contact__right{
+         margin-top:10px;
+       }
+ 
+       .contact__footer1{
+         display: none;
+       }
+      .contact__footer2{
+        display: block;
+        background-color:rgb(1, 12, 38);
+        padding-top: -25px;
+        width: 100vw;
+       color: white;
+        height:20vh;
+        text-align: center;
+      }
+      }   
+      .faculty{
+        margin-left: 45px;
+      }
+      
+      .facultylist{
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .facultycard1{       
+        transition: 0.3s;
+        position: relative;
+        top:10px;
+        margin-left: 15px;
+       
+    }
+    .facultyperson1{
+      border: 2px solid rgb(7, 7, 7);
+      width:200px;
+      height:150px;
+      position: absolute;
+      right:40%;
+      top: 75%;
+      color: white;
+      background-color: rgb(128, 180, 180);
+      padding-left: 10px;
+  }
+  .facultyperson2{
+    border: 2px solid rgb(0, 0, 0);
+    width:200px;
+    height:150px;
+    position: absolute;
+    right:30%;
+    top: 26%;
+    color: white;
+    background-color: rgb(128, 180, 180);
+    padding-left: 10px;
+
+  }
+
+   
+
+
