@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const nodemailer = require("nodemailer");
 const path = require('path');
+const bodyParser = require("body-parser")
 
 require("dotenv").config();
 
