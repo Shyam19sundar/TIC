@@ -629,6 +629,13 @@ app.post("/signup", (req, res) => {
     });
 })
 
+// Catch any bad requests
+app.get('*', (req, res) => {
+    res.status(200).json({
+        msg: 'Catch All'
+    });
+});
+
 app.listen(process.env.PORT || 3001, function () {
     console.log("App started")
 })
