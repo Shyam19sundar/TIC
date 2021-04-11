@@ -13,7 +13,8 @@ import Particles from "react-particles-js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from 'react-router-dom';
-import axios from "../axios";
+// import axios from "../axios";
+import axios from 'axios'
 import InfoIcon from '@material-ui/icons/Info';
 
 function Home() {
