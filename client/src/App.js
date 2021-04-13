@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { HashRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import Events from "./components/Events";
 import SingleEvent from "./components/SingleEvent";
 import "bootstrap/dist/css/bootstrap.min.css";
