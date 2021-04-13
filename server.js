@@ -16,9 +16,17 @@ mongoose.connect("mongodb+srv://admin-SastraIOT:iot&&tbi@cluster0.ce0t2.mongodb.
     useUnifiedTopology: true,
 });
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
-}
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('client/build'));
+// }
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '/client/public/index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
+})
 
 app.use(morgan('tiny'));
 app.use('/api', routes);
