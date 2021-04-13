@@ -16,8 +16,6 @@ mongoose.connect("mongodb+srv://admin-SastraIOT:iot&&tbi@cluster0.ce0t2.mongodb.
     useUnifiedTopology: true,
 });
 
-const PORT = 3001 || process.env.PORT;
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
@@ -25,4 +23,4 @@ if (process.env.NODE_ENV === 'production') {
 app.use(morgan('tiny'));
 app.use('/api', routes);
 
-app.listen(PORT, console.log(`Server is starting at ${PORT}`));
+app.listen(process.env.PORT || 3001, console.log(`Server is starting at ${PORT}`));
