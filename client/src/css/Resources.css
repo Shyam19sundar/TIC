@@ -414,6 +414,12 @@
     border-radius: 50%;
     box-shadow: #00bbbc 0px 5px 15px;
   }
+  .caption {
+    font-size: 3vw;
+    padding-bottom:1vw;
+    font-family: "Noto Sans", sans-serif;
+    color: #dedede;
+  }
   .res-copyrights {
     position: absolute;
     bottom: 0%;

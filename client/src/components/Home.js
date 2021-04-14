@@ -481,7 +481,7 @@ function Home() {
                                                 <h3>{finished[0].event_name}</h3>
                                             </div>
                                             <div className="card-arrow">
-                                                <Link to={`/events/${finished[0]._id}`} target="_blank" rel="noopener noreferrer" ><ArrowForwardIcon /></Link>
+                                                <Link to={`/events/${finished[0]._id}`} ><ArrowForwardIcon /></Link>
                                             </div>
                                         </div>
                                         {/* <div>
@@ -497,7 +497,7 @@ function Home() {
                                                 <p>{finished[0].event_cluster}</p>
                                                 {/* <p>{finished[0].form}</p> */}
                                                 <div className="card-detailsRegister">
-                                                    <Link to={`/events/${finished[0]._id}`} target="_blank" rel="noopener noreferrer" >More Details</Link>
+                                                    <Link to={`/events/${finished[0]._id}`}>More Details</Link>
                                                     {/* <label>More Details --&gt;</label> */}
                                                 </div>
                                             </div>
@@ -560,7 +560,9 @@ function Home() {
                                                 <h3>{nextHolder[1].event_name}</h3>
                                             </div>
                                             <div className="card-arrow">
-                                                <a href={nextHolder[1].form} target="_blank" rel="noopener noreferrer"><ArrowForwardIcon /></a>
+                                                <Link to={`/events/${nextHolder[1]._id}`}>
+                                                    <ArrowForwardIcon />
+                                                </Link>
                                             </div>
                                         </div>
 
@@ -597,7 +599,7 @@ function Home() {
                                                     <h3>{finished[1]?.event_name}</h3>
                                                 </div>
                                                 <div className="card-arrow">
-                                                    <Link to={`/events/${finished[1]._id}`} target="_blank" rel="noopener noreferrer"><ArrowForwardIcon /></Link>
+                                                    <Link to={`/events/${finished[1]._id}`}><ArrowForwardIcon /></Link>
                                                 </div>
                                             </div>
 
@@ -614,7 +616,7 @@ function Home() {
                                                     <p>{finished[1].event_cluster}</p>
                                                     {/* <p>{finished[0].form}</p> */}
                                                     <div className="card-detailsRegister">
-                                                        <Link to={`/events/${finished[1]._id}`} target="_blank" rel="noopener noreferrer">More Details</Link>
+                                                        <Link to={`/events/${finished[1]._id}`}>More Details</Link>
                                                         {/* <label>More Details --&gt;</label> */}
                                                     </div>
                                                 </div>

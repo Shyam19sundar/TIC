@@ -75,6 +75,11 @@
 }
 
 @media (max-width: 1007px)  {
+
+    .single-event{
+        flex-direction: column;
+    }
+
     .single-event p {
         width: 90%;
         font-size: 14px;
