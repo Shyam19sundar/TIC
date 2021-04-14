@@ -100,6 +100,9 @@ function Clusters() {
                         </div>
                     )}
                 </div>
+                {/* <div className="copyrights">
+                    <p>© 2021 <label>TIC Club of SASTRA</label></p>
+                </div> */}
             </div>
         </div>
     )

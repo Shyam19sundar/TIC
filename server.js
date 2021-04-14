@@ -11,7 +11,7 @@ require("dotenv").config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-mongoose.connect("mongodb+srv://admin-SastraIOT:iot&&tbi@cluster0.ce0t2.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

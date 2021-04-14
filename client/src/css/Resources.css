@@ -1,9 +1,119 @@
 .res_total * {
-  background: transparent;
+  background-color: transparent;
 }
 
-.codingSection{
+.codingSection {
   background: white !important;
+}
+.yt-links {
+  font-family: "RocknRoll", sans-serif;
+  color: white;
+}
+.youtubeLinks_res {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.left-lines-res {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+
+.right-lines-res {
+  transform: scaleX(-1);
+  position: absolute;
+  top: 0%;
+  right: 0%;
+}
+.whole_ytres {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 15%;
+  flex-direction: column;
+}
+.title_ytres {
+  flex: 0.1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4vh;
+}
+.title_ytres > h3 {
+  color: white;
+}
+.yt-linksContainer {
+  flex: 0.9;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  gap: 1%;
+  height: 90%;
+  width: 100%;
+  /* margin: 15%;*/
+  margin-bottom: 2%;
+  /* width: 40vw;
+  height: 50vh; */
+  /* margin-top: 20%; */
+}
+
+.yt-simpleContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.iframe_titleRes {
+  flex: 0.1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iframe_titleRes > h3 {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  padding-top: 20%;
+  color: white;
+  text-align: center;
+}
+.android_res {
+  writing-mode: vertical-lr !important;
+  transform: rotate(0deg) !important;
+  padding-top: 20%;
+  color: white;
+  text-align: center;
+}
+.iframe_contentRes {
+  flex: 0.9;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  padding-left: 5%;
+}
+.iframe_contentRes > iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.youtubeLinks_res {
+  height: 100%;
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+  width: 100%;
+  background-color: rgb(1, 12, 38);
+  scroll-snap-align: center;
+  scroll-behavior: smooth;
+}
+.res-copyrights {
+  position: absolute;
+  bottom: 0%;
+  color: white;
+  margin-bottom: 2vh;
+  font-size: 0.65rem;
+  font-family: "Poppins", sans-serif;
 }
 
 .res_total {
@@ -15,6 +125,7 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
   width: -webkit-fill-available !important;
+  background-color: transparent !important;
 }
 .resources {
   width: 100%;
@@ -26,8 +137,9 @@
 .whole_res {
   width: 100%;
   height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-behavior: smooth;
+  background-color: rgb(1, 12, 38);
 }
 .container_res {
   height: 100%;
@@ -37,12 +149,24 @@
 }
 .icons_font {
   font-size: 3vw;
-  padding: 0.3vw; 
+  padding: 0.5vw;
+  background-color: rgb(1, 12, 38);
+  border: 1px solid #00bbbc;
+  border-radius: 50%;
+  box-shadow: #00bbbc 0px 5px 15px;
+}
+.icons_fonts {
+  font-size: 3vw;
+  padding: 0.5vw;
+
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 50%;
+  box-shadow: #000 0px 5px 15px;
 }
 #upButton {
   position: absolute;
   margin-right: 1vw;
-  background-color: rgb(1, 12, 38);
   border-radius: 50%;
   margin-bottom: 2vw;
   right: 0;
@@ -61,14 +185,14 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   display: flex;
 
   flex-direction: column;
   align-items: center;
   justify-content: center;
   /* background-color: #344a86; */
-  background-color: rgb(1, 12, 38);
+  /* background-color: rgb(1, 12, 38); */
   color: #9ddaca;
 }
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap");
@@ -132,7 +256,7 @@
 .content_arduino {
   width: 100%;
   height: 100vh;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-behavior: smooth;
 }
 
@@ -151,9 +275,9 @@
   height: 100vh;
   width: 50vw;
 }
-.res_total::-webkit-scrollbar {
+/* .res_total::-webkit-scrollbar {
   display: none;
-}
+} */
 .res_total {
   -ms-overflow-style: none; /* IE 11 */
   scrollbar-width: none;
@@ -164,7 +288,7 @@
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100%;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-behavior: smooth;
   background-image: linear-gradient(#00a5a6, #006769);
 }
@@ -173,7 +297,7 @@
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100%;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-behavior: smooth;
 }
 .content_raspberryPiMob {
@@ -181,7 +305,7 @@
   height: 100vh;
   height: calc(var(--vh, 1vh) * 100);
   width: 100%;
-  scroll-snap-align: center;
+  scroll-snap-align: start;
   scroll-behavior: smooth;
 }
 /* .model_arduino {
@@ -205,14 +329,137 @@
   background-color: yellow !important;
   width: 100%;
 } */
+@media (max-width: 1000px) {
+  .left-lines-res {
+    position: absolute;
+    top: 0%;
+    left: -11%;
+    opacity: 0.8;
+  }
+
+  .right-lines-res {
+    transform: scaleX(-1);
+    position: absolute;
+    top: 0%;
+    right: -11%;
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 800px) {
+  .yt-linksContainer {
+    flex: 0.8;
+    display: flex;
+    flex-direction: column;
+    height: 90%;
+    width: 100%;
+    margin-bottom: 2%;
+    margin-top: 8%;
+    /* 
+    justify-content: center; */
+    margin-left: 2%;
+  }
+  .res_total {
+    height: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+    width: -webkit-fill-available !important;
+    background-color: transparent !important;
+  }
+  .title_ytres {
+    flex: 0.2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4vh;
+    margin-bottom: 1vh;
+  }
+  .title_ytres > h1 {
+    font-size: 8vw;
+    font-family: "Noto Sans", sans-serif;
+  }
+  .heading {
+    font-size: 10vw;
+    font-family: "RocknRoll One", sans-serif;
+    color: white;
+  }
+  .yt-simpleContainer {
+    width: 100%;
+    height: 20%;
+    display: flex;
+  }
+  .iframe_contentRes {
+    flex: 0.9 1;
+    width: 100%;
+    height: 100%;
+    padding: 10%;
+    padding-left: 5%;
+    padding-bottom: 5%;
+    padding-top: 5%;
+  }
+  .iframe_titleRes > h3 {
+    font-size: 3.5vw;
+  }
+}
 @media (max-width: 600px) {
+  .icons_font {
+    font-size: 15vw;
+    padding: 3vw;
+    background-color: rgb(1, 12, 38);
+    border: 1px solid #00bbbc;
+    border-radius: 50%;
+    box-shadow: #00bbbc 0px 5px 15px;
+  }
+  .res-copyrights {
+    position: absolute;
+    bottom: 0%;
+    color: white;
+    padding-bottom: 6vh;
+    font-size: 0.5rem;
+    font-family: "Poppins", sans-serif;
+  }
+  #upButton {
+    position: absolute;
+    margin-right: 1vw;
+    border-radius: 50%;
+    margin-bottom: 4vw;
+    right: 0;
+    bottom: 7%;
+  }
+
   .content_arduino,
   .content_nodeMCU,
   .content_raspberryPi {
     display: none;
   }
+  #resource_buttons {
+    font-size: 3.3vw;
+    padding: 3px 2px;
+  }
+  .left-lines-res {
+    position: absolute;
+    top: 0%;
+    left: -25%;
+    opacity: 0.8;
+  }
+  .heading {
+    font-size: 12vw;
+    font-family: "RocknRoll One", sans-serif;
+    color: white;
+  }
+  .right-lines-res {
+    transform: scaleX(-1);
+    position: absolute;
+    top: 0%;
+    right: -25%;
+    opacity: 0.8;
+  }
   .res_intro {
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     scroll-behavior: smooth;
     height: 100%;
     height: 100vh;
@@ -224,6 +471,23 @@
     height: calc(var(--vh, 1vh) * 100);
   }
 }
+@media (max-width: 400px) {
+  .left-lines-res {
+    position: absolute;
+    top: 0%;
+    left: -38%;
+    opacity: 0.8;
+  }
+
+  .right-lines-res {
+    transform: scaleX(-1);
+    position: absolute;
+    top: 0%;
+    right: -38%;
+    opacity: 0.8;
+  }
+}
+
 @media (min-width: 601px) {
   .content_arduinoMob,
   .content_nodeMCUMob,

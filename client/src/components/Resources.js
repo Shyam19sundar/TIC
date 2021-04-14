@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { IconButton } from "@material-ui/core";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import DescMob from "./DescMob.js";
 // import { ToastContainer, toast } from "react-toastify";
 // import "react-toastify/dist/ReactToastify.css";
@@ -25,13 +27,36 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 function Resources() {
   //SwiperCore.use([Navigation, Pagination]);
+  // gsap.registerPlugin(ScrollTrigger);
+  // const ref = useRef(null);
+
+  // let sections = gsap.utils.toArray(".panel");
 
   useEffect(() => {
     $(".headerFull").css("display", "block");
     $(".headerFull").css("position", "absolute");
     $(".headerFull").css("top", "0");
-  }, [])
-
+  }, []);
+  // useEffect(() => {
+  //   const element = ref.current;
+  //   gsap.fromTo(
+  //     element.querySelector(".title_ytres"),
+  //     {
+  //       opacity: 0,
+  //       // y: -20,
+  //     },
+  //     {
+  //       opacity: 1,
+  //       // y: 0,
+  //       scrollTrigger: {
+  //         trigger: element.querySelector(".title_ytres"),
+  //         start: "top bottom",
+  //         end: "bottom center",
+  //         scrub: true,
+  //       },
+  //     }
+  //   );
+  // }, []);
   const Description = () => {
     return <div>Desc</div>;
   };
@@ -144,9 +169,9 @@ function Resources() {
             }}
           >
             <FontAwesomeIcon
-              className="icons_font"
+              className="icons_fonts"
               icon={faChevronUp}
-              color="#00bbbc"
+              color="#fff"
             />
           </IconButton>
         </div>
@@ -161,8 +186,7 @@ function Resources() {
           <Navbar />
           <h1 className="heading">Resources</h1>
           <div className="caption">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+            The only true wisdom is in knowing you know nothing.
           </div>
           <div className="resource_three">
             <div
@@ -220,6 +244,22 @@ function Resources() {
             >
               RaspberryPi
             </div>
+            <div
+              className="arduino_button"
+              id="resource_buttons"
+              onClick={() => {
+                var elementArd = document.getElementById("youtubeLinks_res");
+                var ardMob = document.getElementById("youtubeLinks_res");
+                elementArd.scrollIntoView({
+                  behavior: "smooth",
+                });
+                ardMob.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Useful Links
+            </div>
           </div>
           <div
             className="model2"
@@ -267,6 +307,106 @@ function Resources() {
             url="./raspberry_pi_3/scene.gltf"
             model="raspberryPi"
           />
+        </div>
+        <div className="youtubeLinks_res" id="youtubeLinks_res">
+          <div className="left-lines-res">
+            <img src="side-line-1.svg" width="100%" height="100%" />
+          </div>
+          <div className="right-lines-res">
+            <img src="side-line-1.svg" width="100%" height="100%" />
+          </div>
+          <div className="whole_ytres">
+            <div className="title_ytres">
+              <h1 style={{ color: "white" }}>Useful Links</h1>
+            </div>
+            <div className="yt-linksContainer">
+              <div className="yt-simpleContainer">
+                <div className="iframe_titleRes">
+                  <h3>Web Dev</h3>
+                </div>
+                <div className="iframe_contentRes">
+                  {" "}
+                  <iframe
+                    src="https://www.youtube.com/embed/0eWrpsCLMJQ?list=PLC3y8-rFHvwhBRAgFinJR8KHIrCdTkZcZ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+              <div className="yt-simpleContainer">
+                {" "}
+                <div className="iframe_contentRes">
+                  <iframe
+                    src="https://www.youtube.com/embed/roDz8mMvbIg?list=PLknSwrodgQ72X4sKpzf5vT8kY80HKcUSe"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div className="iframe_titleRes">
+                  <h3 className="android_res">App Dev</h3>
+                </div>
+              </div>
+              <div className="yt-simpleContainer">
+                <div className="iframe_titleRes">
+                  <h3>ML & AI</h3>
+                </div>
+                <div className="iframe_contentRes">
+                  <iframe
+                    width="853"
+                    height="480"
+                    src="https://www.youtube.com/embed/bPrmA1SEN2k?list=PLZoTAELRMXVPBTrWtJkn3wWQxZkmTXGwe"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              </div>
+              <div className="yt-simpleContainer">
+                <div className="iframe_contentRes">
+                  <iframe
+                    width="853"
+                    height="480"
+                    src="https://www.youtube.com/embed/rYWJdZ5qg6M?list=PLbRMhDVUMngcdUbBySzyzcPiFTYWr4rV_"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+                <div className="iframe_titleRes">
+                  <h3 className="android_res">Robotics</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p className="res-copyrights">
+            © 2021 <label>TIC SASTRA</label>
+          </p>
+          <IconButton
+            id="upButton"
+            onClick={() => {
+              var elementArd = document.getElementById("res_intro");
+              var ardMob = document.getElementById("res_intro");
+              elementArd.scrollIntoView({
+                behavior: "smooth",
+              });
+              ardMob.scrollIntoView({
+                behavior: "smooth",
+              });
+            }}
+          >
+            <FontAwesomeIcon
+              className="icons_font"
+              icon={faChevronUp}
+              color="#00bbbc"
+            />
+          </IconButton>
         </div>
       </div>
     </div>

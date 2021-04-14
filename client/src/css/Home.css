@@ -527,9 +527,11 @@
   width: 100%;
   height: 40%;
   display: flex;
+  margin-top: 10%;
 }
 
 .card-flex > div:nth-child(1) {
+  /* margin-top: 35px; */
   flex: 60%;
   height: 100%;
   display: flex;
@@ -547,8 +549,12 @@
 }
 
 .card-flex:nth-child(3){
-  height: 60%;
+  height: 50%;
   margin-top: 35px;
+}
+
+.card-flex:nth-child(2){
+  height: 50%;
 }
 
 .flex-image {
@@ -558,6 +564,10 @@
 
 .flex-image > img{
   border-radius: 5px;
+}
+
+.card-arrow{
+  display: none;
 }
 
 .card-singleContent ~ a {
@@ -1189,6 +1199,13 @@ a {
 
 /* Media-Query */
 @media (max-width: 769px) {
+
+  .home-landing{
+    height: 100%;
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
   .title-andContent {
     margin-top: 10vh;
     padding: 0px 10px;
@@ -1234,13 +1251,27 @@ a {
         /* transform: translateY(-50%); */
     }
 
+    .second-startingContent{
+      margin: 0% 15% 2% 15%;
+      padding-top: 30%;
+    }
+
+    .second-who{
+      font-size: 1.8rem;
+    }
+
+    /* .second-whoContent{
+      margin: 5% 5% 2% 5%;
+    } */
+
   .second-whoContent {
     font-size: 1.1em;
   }
 
   .placeholder-forImage {
-    top: 5%;
-    height: 90vh;
+    top: 20%;
+    height: 70vh;
+    /* width: 150% !important; */
   }
 
   .placeholder-forImage > img {
@@ -1273,6 +1304,11 @@ a {
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin: 0% 15% 0% 15%;
+  }
+
+  .gallery{
+    padding-left: 0%;
   }
 
   .card-container {
@@ -1299,17 +1335,21 @@ a {
     display: none;
   }
 
-  .home-card:nth-child(3) > div > p , .home-card:nth-child(1) > div > p{
+  .home-card:nth-child(3)  div  p , .home-card:nth-child(1)  div  p{
     display: none;
   }
 
-  .home-card:nth-child(1) > div > h3 , .home-card:nth-child(3) > div > h3{
+  .home-card:nth-child(1)  div  h3 , .home-card:nth-child(3)  div  h3{
     font-size: 1rem;
   }
 
   .home-card:nth-child(1){
     border-radius: 10px 10px 0px 0px;
     width: 340px !important;
+  }
+
+  .home-card:nth-child(1) > div{
+    height: 0% !important;
   }
 
   .home-card:nth-child(3){
@@ -1338,6 +1378,24 @@ a {
     /* transition: 0.4s ease-out; */
   }
 
+  .card-arrow{
+    display: block;
+    cursor: pointer;
+  }
+
+  .card-arrow > a{
+    color:black !important;
+    text-decoration: none;
+    outline: none;
+    font-size: 1rem;
+  }
+
+  .card-topFlex{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
   .home-card:hover ~ .home-card {
     position: relative;
     left: 0px;
@@ -1351,6 +1409,10 @@ a {
   .marquee-scroll > .marquee-place {
     width: 400%;
     animation-duration: 20s;
+  }
+
+  .what-weDo{
+    padding-left: 0% !important;
   }
 
   .what-weDo > h1 {

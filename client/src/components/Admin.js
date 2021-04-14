@@ -19,11 +19,11 @@ function Admin() {
                 sessionStorage.setItem("firebaseConfig", JSON.stringify(res.data));
         })
 
-        if (window.location.search)
-            setcategory(window.location.search)
+        if (window.location.hash)
+            setcategory(window.location.hash.slice(window.location.hash.lastIndexOf('?') + 1))
         else
             setcategory(null)
-    }, [window.location.search])
+    }, [window.location.hash])
     const [category, setcategory] = useState(null)
 
     const getFirebaseInfo = () => {
@@ -154,14 +154,15 @@ function Admin() {
                     Add Member
                 </Link>
             </Menu>
+            {console.log(category)}
             <div className="content">
-                {category ? "" : <Dashboard />}
-                {category === "?add-events" ? <AddEvents /> : ""}
-                {category === "?register-events" ? <RegisterEvents /> : ""}
-                {category === "?add-projects" ? <AddProjects /> : ""}
-                {category === "?add-cluster" ? <NewCluster /> : ""}
-                {category === "?add-member" ? <NewMember /> : ""}
-                {category === "?members" ? <AdminMembers /> : ""}
+                {category === "#/admin" ? <Dashboard /> : ""}
+                {category === "register-events" ? <RegisterEvents /> : ""}
+                {category === "add-projects" ? <AddProjects /> : ""}
+                {category === "add-events" ? <AddEvents /> : ""}
+                {category === "add-cluster" ? <NewCluster /> : ""}
+                {category === "add-member" ? <NewMember /> : ""}
+                {category === "members" ? <AdminMembers /> : ""}
             </div>
         </div>
     )

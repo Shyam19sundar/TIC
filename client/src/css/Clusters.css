@@ -132,3 +132,77 @@ font-family: "Poppins" , sans-serif;
         flex-direction: column;
     }
 }
+
+@media(max-width: 769px){
+
+        .full-teams{
+            display: flex;
+            flex-direction: column;
+            margin-top: 15%;
+        }
+
+        .full-teams > h3{
+            writing-mode: horizontal-tb;
+            transform: rotate(0deg);
+            width: 100% !important;
+            height: 10% !important;
+        }
+
+       .cluster-rightLines , .cluster-leftLines{
+           z-index: 0 !important;
+           top: 20%;
+           opacity: 0.6;
+           /* width: 30%; */
+           height: 100vh;
+       }
+
+       /* .cluster-rightLines{
+           right: -30%;
+       } */
+
+       .clusters-contentTop {
+           position: relative;
+           z-index: 10 !important;
+           margin: 0% !important;
+           padding: 0%;
+           height: 35vh;
+       }
+
+       .cluster-domains{
+           grid-template-columns: 50% 50%;
+           grid-template-rows: 30% 30% 30%;
+           row-gap: 20px;
+           column-gap: 20px;
+           padding: 10px;
+           display: none;
+       }
+
+       .team-members{
+           border-left: none;
+           /* z-index: 100; */
+       }
+
+       .clusters-batches{
+           padding: 10px;
+       }
+
+       .rec-carousel button{
+           z-index: 1000;
+       }
+
+       .lgksPe:hover:enabled{
+           background-color: transparent !important;
+       }
+
+       .rec-carousel button:hover{
+            transform: none;
+    }
+
+    .team-members{
+        padding-left: 0px;
+    }
+
+    .team-members > div{
+        margin-left: 0px;
+    }
+} 

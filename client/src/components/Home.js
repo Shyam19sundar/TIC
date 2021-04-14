@@ -15,6 +15,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Link } from 'react-router-dom';
 import axios from "../axios";
 import InfoIcon from '@material-ui/icons/Info';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 
 function Home() {
 
@@ -440,7 +441,7 @@ function Home() {
             <div className="home-nextLanding" >
                 <div className="second-landing">
                     <div className="second-startingContent">
-                        <p className="second-who">Who we are???</p>
+                        <p className="second-who">Who&nbsp;we&nbsp;are???</p>
                         <p className="second-whoContent">Tech Innovation club(TIC), is a privileged club of SASTRA TBI, managed by students and coordinate the concerned faculty, helps in the development of student growth to enable them to generate new ideas and become more innovative by leveraging the latest technology.</p>
                     </div>
                     <div className="banner">
@@ -474,15 +475,22 @@ function Home() {
                             {
                                 finished ? (
                                     <div>
-                                        <h6 className="card-title">Past Event</h6>
-                                        <h3>{finished[0].event_name}</h3>
+                                        <div className="card-topFlex">
+                                            <div>
+                                                <h6 className="card-title">Past Event</h6>
+                                                <h3>{finished[0].event_name}</h3>
+                                            </div>
+                                            <div className="card-arrow">
+                                                <Link to={`/events/${finished[0]._id}`} target="_blank" rel="noopener noreferrer" ><ArrowForwardIcon /></Link>
+                                            </div>
+                                        </div>
                                         {/* <div>
                                             <p>{finished[0].event_desc}</p>
                                         </div> */}
                                         <div className="card-flex">
                                             <div className="card-singleContent">
-                                                <small>Sponsors:</small>
-                                                <p>{finished[0].event_sponsors}</p>
+                                                <small>Date:</small>
+                                                <p>{finished[0].event_date}</p>
                                                 {/* <small>Dates:</small>
                                                 <p>{finished[0].event_date}</p> */}
                                                 <small>Organized By:</small>
@@ -546,17 +554,25 @@ function Home() {
                             {
                                 nextHolder?.length === 2 ? (
                                     <div>
-                                        <h6 className="card-title">Upcoming Event</h6>
-                                        <h3>{nextHolder[1].event_name}</h3>
+                                        <div className="card-topFlex">
+                                            <div>
+                                                <h6 className="card-title">Upcoming Event</h6>
+                                                <h3>{nextHolder[1].event_name}</h3>
+                                            </div>
+                                            <div className="card-arrow">
+                                                <a href={nextHolder[1].form} target="_blank" rel="noopener noreferrer"><ArrowForwardIcon /></a>
+                                            </div>
+                                        </div>
+
                                         {/* <div>
                                             <p>{nextHolder[1].event_desc}</p>
                                         </div> */}
                                         <div className="card-flex">
                                             <div className="card-singleContent">
-                                                <small>Sponsors:</small>
-                                                <p>{nextHolder[1].event_sponsors}</p>
-                                                <small>Dates:</small>
+                                                <small>Date:</small>
                                                 <p>{nextHolder[1].event_date}</p>
+                                                <small>Timings:</small>
+                                                <p>{nextHolder[1].event_time}</p>
                                                 {/* <small>Timings:</small>
                                                 <p>{nextHolder[1].event_time}</p> */}
                                                 {/* <p>{nextHolder[1].form}</p> */}
@@ -575,15 +591,23 @@ function Home() {
                                 ) : (
                                     finished ? (
                                         <div>
-                                            <h6 className="card-title">Past Event</h6>
-                                            <h3>{finished[1]?.event_name}</h3>
+                                            <div className="card-topFlex">
+                                                <div>
+                                                    <h6 className="card-title">Past Event</h6>
+                                                    <h3>{finished[1]?.event_name}</h3>
+                                                </div>
+                                                <div className="card-arrow">
+                                                    <Link to={`/events/${finished[1]._id}`} target="_blank" rel="noopener noreferrer"><ArrowForwardIcon /></Link>
+                                                </div>
+                                            </div>
+
                                             {/* <div>
                                                 <p>{finished[1].event_desc}</p>
                                             </div> */}
                                             <div className="card-flex">
-                                                <div style={{ "marginTop": "10%" }} className="card-singleContent">
-                                                    <small>Sponsors:</small>
-                                                    <p>{finished[1].event_sponsors}</p>
+                                                <div className="card-singleContent">
+                                                    <small>Date:</small>
+                                                    <p>{finished[1].event_date}</p>
                                                     {/* <small>Dates:</small>
                                                 <p>{finished[0].event_date}</p> */}
                                                     <small>Organized By:</small>

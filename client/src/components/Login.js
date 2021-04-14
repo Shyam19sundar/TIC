@@ -20,8 +20,8 @@ function Login() {
         })
     }
     useEffect(() => {
-        if (window.location.search)
-            setcategoryLogin(window.location.search)
+        if (window.location.hash)
+            setcategoryLogin(window.location.hash.slice(window.location.hash.lastIndexOf('?') + 1))
         else
             setcategoryLogin(null)
     }, [window.location.search])
@@ -75,7 +75,7 @@ function Login() {
             <div className="container">
                 <div className="row">
                     <div className="col-md-9">
-                        {categoryLogin === "?otp-verify" ? <OTPVerify /> : categoryLogin === "?password-check" ? <PasswordCheck /> :
+                        {categoryLogin === "otp-verify" ? <OTPVerify /> : categoryLogin === "password-check" ? <PasswordCheck /> :
                             <form className="box" onSubmit={handleSubmit}>
                                 <h1>Login</h1>
                                 <p className="text-muted"> Please enter your login and password!</p>

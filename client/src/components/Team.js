@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import GitHubIcon from '@material-ui/icons/GitHub';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import '../css/Team.css'
@@ -12,7 +12,7 @@ function Team({ name, members }) {
         { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
         { width: 850, itemsToShow: 3 },
         { width: 1150, itemsToShow: 4, itemsToScroll: 2 },
-        { width: 1450, itemsToShow: 5 },
+        { width: 1450, itemsToShow: 6 },
         { width: 1750, itemsToShow: 6 },
     ]
 

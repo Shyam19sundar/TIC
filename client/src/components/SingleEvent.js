@@ -34,21 +34,61 @@ function SingleEvent() {
 
     return (
         <div className='single-event'>
-            <h1>{singleEvent.event_name}</h1>
-            <Carousel id='carousel'>
-                {
-                    singleEvent.event_images?.map(image =>
-                        <Carousel.Item id='carousel-item' interval={2000}>
-                            <img
-                                className="d-block w-100"
-                                src={image}
-                                alt="First slide"
-                            />
-                        </Carousel.Item>)
-                }
-            </Carousel>
-            <h3>Description</h3>
-            <p>{singleEvent.event_desc}</p>
+            <div className="event-leftDiv">
+                <h1>{singleEvent.event_name}</h1>
+                <Carousel id='carousel'>
+                    {
+                        singleEvent.event_images?.map(image =>
+                            <Carousel.Item id='carousel-item' interval={2000}>
+                                <img
+                                    className="d-block w-100"
+                                    src={image}
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>)
+                    }
+                </Carousel>
+            </div>
+            <div className="event-rightDiv">
+                <p>{singleEvent.event_desc}</p>
+                <div className="right-downStats">
+                    <div>
+                        <small>Organized By:</small> <br />
+                        <span>{singleEvent.event_cluster}</span>
+                    </div>
+                    <div>
+                        <small>Date:</small> <br />
+                        <span>{singleEvent.event_date}</span>
+                    </div>
+                    {
+                        singleEvent.no_of_participants != 0 ? (
+                            <div>
+                                <small>No.of Participants:</small> <br />
+                                <span>{singleEvent.no_of_participants}</span>
+                            </div>
+
+                        ) : ""
+                    }
+                    {
+                        singleEvent.events_sponsors != null ? (
+                            <div>
+                                <small>Sponsors:</small> <br />
+                                <span>{singleEvent.events_sponsors}</span>
+                            </div>
+
+                        ) : ""
+                    }
+                    {
+                        singleEvent.events_winners != null ? (
+                            <div>
+                                <small>Winners:</small> <br />
+                                <span>{singleEvent.events_winners}</span>
+                            </div>
+
+                        ) : ""
+                    }
+                </div>
+            </div>
         </div>
     )
 }

@@ -37,41 +37,42 @@ function Final() {
                 navbar
                 </div> */}
             <div className="contact_us">Contact Us</div>
+            <img className="dots-forContact" src="contact-dots.svg" width="50px" height="50px" />
             <div className="contact_first">
+                <div className="contact_right">
+                    <div id="contact_icon">
+                        {/* <span><b>Social</b></span> */}
+                        {/* <span className="vr"></span> */}
+                        <a href="https://www.instagram.com/techinclub/"><img className="iconimage" src="contact-insta.png" alt="icon"></img></a>
+                        <a href=" https://twitter.com/techinclub"><img className="iconimage" src="contact-twitter.svg" alt="icon"  ></img></a>
+                        <a href="https://www.youtube.com/channel/UCaLrLjv2IQxB61csVqsO35w"> <img className="iconimage" src="contact-you.png" alt="icon" ></img></a>
+                        <a href="https://www.linkedin.com/in/techinclub"><img className="iconimage" src="contact-in.png" alt="icon" ></img></a>
+                    </div>
+                    <div className="contact_svg">
+                        <img src="contactus.svg"></img>
+                    </div>
+                </div>
                 <div className="contact_left">
 
                     <div className="contact_newsletter">
                         <div className="contact_input">
-                            <h3 >Sign Up for our NewsLetter:</h3>
-                            <input type="Email" id="email" placeholder="Enter Your Email ID " onChange={handleChange} ></input><br />
-                            <button onClick={handleSubmit}  >Sign Up </button><br />
-                            <p>Once you have Sign Up for the IoT Club NewsLetter you will receive occasional emails regarding the progress and informtion regarding the various events conducted by the Club.</p>
+                            <h3 >Getting in touch is easy</h3>
+                            <input type="Email" id="email" placeholder="Sign Up to our NewsLetter" onChange={handleChange} ></input><br />
+                            <button onClick={handleSubmit}>Subscribe</button><br />
+                            <p>When you subscribe to the IoT Club NewsLetter you will be notified with occasional emails regarding the events and activities of the Tech Innovation Club.</p>
                         </div>
-                    </div>
-                </div>
-                <div className="contact_right">
-                    <div id="contact_icon">
-                        <span><b>Social</b></span>
-                        <span className="vr"></span>
-                        <a href="https://www.instagram.com/techinclub/"><img className="iconimage" style={{ borderRadius: "35px" }} src="instagram.png" alt="icon"></img></a>
-                        <a href=" https://twitter.com/techinclub"><img className="iconimage" src="twt.png" alt="icon"  ></img></a>
-                        <a href="https://www.youtube.com/channel/UCaLrLjv2IQxB61csVqsO35w"> <img className="iconimage" src="utube.png" alt="icon" ></img></a>
-                        <a href="https://www.linkedin.com/in/techinclub"><img className="iconimage" src="in.png" alt="icon" ></img></a>
-                    </div>
-                    <div className="contact_svg">
-                        <img src="contact1.jpg"></img>
                     </div>
                 </div>
             </div>
             <div className="contact_middle">
                 <div className="contact_address">
                     <div className="contact_email">
-                        <div> <span className="email"><EmailIcon /></span>Email Id:</div>
+                        <EmailIcon className="contact-email" />
                         <p>iotclubsastra@gmail.com </p>
                     </div>
                     <div className="contact_main">
-                        <div > <span className="location"><LocationOnIcon /></span>Address:</div>
-                        <p>Sastra University,<br />
+                        <LocationOnIcon className="contact-location" />
+                        <p>Sastra University,
                              Thanjavur-613301.</p>
                     </div>
                 </div>
@@ -79,30 +80,34 @@ function Final() {
             </div>
             <div className="contact_last">
                 <div className="contact_details">
-                    <div className="contact_profile1">
-                        <img src="staff1.jpeg" alt="Avatar" width="150px" height="150px" />
-                        <div>R.Anantharaman</div>
-                        <p>CEO | TBI</p>
-                        <div className="icon">
-                            <a href="www.twitter.com/anantha02814741"><LinkedInIcon style={{ color: "white" }} /></a>
-                            <a href="http://www.linkedin.com/in/r-anantharaman-7b827130"> <TwitterIcon style={{ color: "white" }} /></a>
+                    <div className="details-left">
+                        <div className="contact_profile1">
+                            <img src="staff1.jpeg" alt="Avatar" width="150px" height="150px" />
+                            <div>R.Anantharaman</div>
+                            <p>CEO | TBI</p>
+                            <div className="icon">
+                                <a href="https://www.linkedin.com/in/r-anantharaman-7b827130"><LinkedInIcon style={{ color: "white" }} /></a>
+                                <a href="https://www.twitter.com/anantha02814741 "> <TwitterIcon style={{ color: "white" }} /></a>
+                            </div>
+                        </div>
+                        <div className="contact_profile2">
+                            <img src="staff2.jpeg" alt="Avatar" width="150px" height="150px" />
+                            <div>K.Fathima</div>
+                            <p>Technical Assistant-TBI</p>
+                            <div className="icon">
+                                <a href="https://www.linkedin.com/in/fathimabasha"><LinkedInIcon style={{ color: "white" }} /></a>
+                                <a href="https://www.twitter.com/fathikamal27"> <TwitterIcon style={{ color: "white" }} /></a>
+                            </div>
                         </div>
                     </div>
-                    <div className="contact_profile2">
-                        <img src="staff2.jpeg" alt="Avatar" width="150px" height="150px" />
-                        <div>K.Fathima</div>
-                        <p>Technical Assistant-TBI</p>
-                        <div className="icon">
-                            <a href="www.linkedin.com/in/fathimabasha"><LinkedInIcon style={{ color: "white" }} /></a>
-                            <a href="www.twitter.com/fathikamal27"> <TwitterIcon style={{ color: "white" }} /></a>
-                        </div>
-                    </div>
+                    <div className="details-right">
 
+                    </div>
                 </div>
             </div>
             <div className="contact_footer">
 
-                <p>@2021 Iot Club of Sastra</p>
+                <p>© 2021 TIC Club of Sastra</p>
             </div>
 
         </div>

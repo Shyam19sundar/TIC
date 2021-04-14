@@ -126,6 +126,15 @@ function Events() {
                     ))
                 }
             </div>
+            <div className="left-eventsLines">
+                <img src="side-line-1.svg" width="100%" height="100%" />
+            </div>
+            <div className="right-eventsLines">
+                <img src="side-line-1.svg" width="100%" height="100%" />
+            </div>
+            {/* <div className="events-copyrights">
+                <p>© 2021 <label>TIC Club of SASTRA</label></p>
+            </div> */}
         </div >
     )
 }
