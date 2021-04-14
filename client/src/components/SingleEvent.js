@@ -6,8 +6,8 @@ import Carousel from 'react-bootstrap/Carousel'
 import $ from 'jquery'
 
 function SingleEvent() {
-    const path = window.location.pathname
-    const _id = path.split('/events/')[1]
+    const path = window.location.hash
+    const _id = path.slice(9)
     const [singleEvent, setSingleEvent] = useState(Object)
     useEffect(() => {
         axios.get('/single-event', {

@@ -5,8 +5,8 @@ import '../css/RegisterEvent.css'
 
 
 function RegisterEvent() {
-    const path = window.location.pathname
-    const _id = path.split('/register/')[1]
+    const path = window.location.hash
+    const _id = path.slice(9)
     const [singleEvent, setSingleEvent] = useState(Object)
     useEffect(() => {
         axios.get('/register-event', {
