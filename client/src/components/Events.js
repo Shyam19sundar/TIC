@@ -25,6 +25,7 @@ function Events() {
                     setUpcoming(res.data.arr)
                 }
                 else if (res.status === 204) {
+                    setUpcoming(null)
                     console.log('No events found')
                 }
             })
@@ -81,27 +82,31 @@ function Events() {
             {/* <Header /> */}
             <h1>Forthcoming Events</h1>
             {
-                upcoming?.map(single => (
-                    <div className='events-upcoming'>
-                        <div className='upcoming-time'>
-                            <span id="date">{returnDate(single.event_date)}</span><br />
-                            <span>{returnMonth(single.event_date)}</span>
-                        </div>
-                        <div className='upcoming-desc'>
-                            <div>
-                                <h4>{single.event_name}</h4>
-                                <Link to={`/register/${single._id}`}>
-                                    <a>know more &gt;&gt;&gt;</a>
-                                </Link>
+                upcoming ? (
+                    upcoming.map(single => (
+                        <div className='events-upcoming'>
+                            <div className='upcoming-time'>
+                                <span id="date">{returnDate(single.event_date)}</span><br />
+                                <span>{returnMonth(single.event_date)}</span>
                             </div>
-                            <p>{single.event_desc}</p>
+                            <div className='upcoming-desc'>
+                                <div>
+                                    <h4>{single.event_name}</h4>
+                                    <Link to={`/register/${single._id}`}>
+                                        <a>know more &gt;&gt;&gt;</a>
+                                    </Link>
+                                </div>
+                                <p>{single.event_desc}</p>
+                            </div>
+                            <Link to={`/register/${single._id}`}>
+                                <a>know more &gt;&gt;&gt;</a>
+                            </Link>
+                            <a target='blank' href={single.form} id='reg-button'><button>Register Now!</button></a>
                         </div>
-                        <Link to={`/register/${single._id}`}>
-                            <a>know more &gt;&gt;&gt;</a>
-                        </Link>
-                        <a target='blank' href={single.form} id='reg-button'><button>Register Now!</button></a>
-                    </div>
-                ))
+                    )))
+                    : (
+                        <h4>No Forthcoming Events . Stay tuned :))</h4>
+                    )
             }
             <h1>Wrapped Up Events</h1>
             <div className='events_container' style={{ '--height': `${length}px` }} >

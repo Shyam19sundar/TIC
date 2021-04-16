@@ -144,35 +144,35 @@ function NewMember() {
                         <div>Batch Year</div>
                         <YearPicker required onChange={(date) => setstartyear(date)} />
                         <p>to</p>
-                        <YearPicker onChange={(date) => setendyear(date)} />
+                        <YearPicker required onChange={(date) => setendyear(date)} />
                     </div>
                     <div>
                         <div>Department Year:</div>
-                        <input type="text" onChange={(e) => setyear(e.target.value)} placeholder="Example: IIInd Year" />
+                        <input required type="text" onChange={(e) => setyear(e.target.value)} placeholder="Example: IIInd Year" />
                     </div>
                     <div>
                         <div>Department:</div>
-                        <input type="text" onChange={(e) => setdept(e.target.value)} placeholder="Example: ECE" />
+                        <input required type="text" onChange={(e) => setdept(e.target.value)} placeholder="Example: ECE" />
                     </div>
                     <div>
                         <div>LinkedIn</div>
-                        <input type="text" onChange={(e) => setlinkedIn(e.target.value)} placeholder="LinkedIn Profile Link" />
+                        <input required type="text" onChange={(e) => setlinkedIn(e.target.value)} placeholder="LinkedIn Profile Link" />
                     </div>
                     <div>
                         <div>Github:</div>
-                        <input type="text" onChange={(e) => setgithub(e.target.value)} placeholder="GitHub Profile Link" />
+                        <input required type="text" onChange={(e) => setgithub(e.target.value)} placeholder="GitHub Profile Link" />
                     </div>
                 </div>
                 <div>
                     <div onChange={handleChange}>
                         <div>Image</div>
-                        <input type="file" />
+                        <input required type="file" />
                     </div>
                     <div className="memberBox">
                         {image ? <img alt="Preview" className='previewImage' src={window.URL.createObjectURL(image)} /> : <img src="placeholder-image.png" alt="placeholder" />}
                     </div>
                     <div className="cluster-choice">
-                        <select onClick={(e) => setcluster(e.target.value)} as="select" defaultValue="Choose...">
+                        <select required onClick={(e) => setcluster(e.target.value)} as="select" defaultValue="Choose...">
                             <option disabled selected hidden>Choose...</option>
                             {listofClusterss?.map(clustername =>
                                 <option>{clustername}</option>

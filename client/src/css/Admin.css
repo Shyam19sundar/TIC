@@ -139,6 +139,12 @@
   margin-left: 40px;
 }
 
+.add__events button{
+  background-color: black;
+  padding: 10px 5px;
+  border-radius: 5%;
+}
+
 .fileUpload {
   display: flex;
   flex-direction: column;

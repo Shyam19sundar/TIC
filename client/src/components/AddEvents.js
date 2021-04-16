@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Button from 'react-bootstrap/Button'
 import axios from "../axios"
 import { storage } from "../firebase"
 import $ from "jquery"
@@ -153,26 +152,26 @@ function AddEvents() {
                     <div className="form__single__row">
                         <div>
                             <div className="input__label" >Event Name</div>
-                            <input onChange={(e) => setname(e.target.value)} type="text" placeholder="Event Name" />
+                            <input required onChange={(e) => setname(e.target.value)} type="text" placeholder="Event Name" />
                         </div>
                         <div>
                             <div className="input__label" >Event Sponsors</div>
-                            <input onChange={(e) => setsponsors(e.target.value)} type="text" placeholder="Sponsors" />
+                            <input required onChange={(e) => setsponsors(e.target.value)} type="text" placeholder="Sponsors" />
                         </div>
                         <div>
                             <div className="input__label" >Event Date</div>
-                            <input type="date" onChange={(e) => setEventDate(e.target.value)} placeholder="Date" />
+                            <input required type="date" onChange={(e) => setEventDate(e.target.value)} placeholder="Date" />
                         </div>
                     </div>
                     <div className="form__single__row">
                         <div>
                             <div className="input__label" >Event Description</div>
-                            <textarea rows={5} onChange={(e) => setdesc(e.target.value)} placeholder="Description" />
+                            <textarea required rows={5} onChange={(e) => setdesc(e.target.value)} placeholder="Description" />
                         </div>
                         <div className="filecont form__single__row">
                             <div className="fileUpload" onChange={handleChange}>
                                 <CloudUploadIcon id='cloudIcon' />
-                                <input id="upload" type="file" hidden multiple />
+                                <input required id="upload" type="file" hidden multiple />
                                 <label htmlFor="upload" className="bg-success uploadbut">   Choose files to Upload  </label>
                                 <div className="uploadContainer">
                                     {images?.map(item => (
@@ -207,7 +206,7 @@ function AddEvents() {
                     </div>
 
                     <button type="submit">
-                        Submit
+                        Add Event
                     </button>
                 </form>
             </div>

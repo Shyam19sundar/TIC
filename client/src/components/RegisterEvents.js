@@ -62,51 +62,52 @@ function RegisterEvents() {
 
     }
 
-
     return (
         <div className="register__events">
             <ReactLoading id='loadingUpload' color='#000000' type='spinningBubbles' />
-            <form>
+            <form onSubmit={handleSubmit} >
                 <h3>Registration Details</h3>
                 <div className="events-registerCont">
                     <div className="events-registerLeft">
                         <div>
                             <div>Event Name</div>
-                            <input type="text" onChange={(e) => setname(e.target.value)} placeholder="Event Name" />
+                            <input required type="text" onChange={(e) => setname(e.target.value)} placeholder="Event Name" />
                         </div>
                         <div>
                             <div>Event Date</div>
-                            <input type="date" onChange={(e) => setEventDate(e.target.value)} placeholder="Event Date" />
+                            <input required type="date" onChange={(e) => setEventDate(e.target.value)} placeholder="Event Date" />
                         </div>
                         <div>
                             <div>Timings of the Event</div>
-                            <input onChange={e => settime(e.target.value)} type="text" placeholder="Time Duration" />
+                            <input required onChange={e => settime(e.target.value)} type="text" placeholder="Time Duration" />
                         </div>
                         <div>
                             <div>Event Sponsors</div>
-                            <input type="text" onChange={(e) => setsponsors(e.target.value)} placeholder="Event Sponsors" />
+                            <input required type="text" onChange={(e) => setsponsors(e.target.value)} placeholder="Event Sponsors" />
                         </div>
                         <div>
                             <div>Google Forms Link</div>
-                            <input type="text" onChange={(e) => setform(e.target.value)} placeholder="Google Forms Link" />
+                            <input required type="text" onChange={(e) => setform(e.target.value)} placeholder="Google Forms Link" />
                         </div>
                     </div>
                     <div className="events-registerRight">
                         <div>
                             <div>Event Description</div>
-                            <textarea rows={3} onChange={(e) => setdesc(e.target.value)} />
+                            <textarea required rows={3} onChange={(e) => setdesc(e.target.value)} />
                         </div>
                         <div onChange={handleChange}>
                             <div>Poster</div>
-                            <input type="file" />
+                            <input required type="file" />
                         </div>
                         <div className="events-registerPreview">
                             {image ? <img alt="Preview" width="75%" height="100%" className='previewImage' src={window.URL.createObjectURL(image)} /> : <img src="placeholder-image.png" alt="placeholder" width="75%" height="100%" />}
                         </div>
+                        <div>
+                            <button type="submit">Update Event Details</button>
+                        </div>
                     </div>
                 </div>
             </form>
-            <button onClick={handleSubmit} type="submit">Update Event Details</button>
         </div>
     )
 }

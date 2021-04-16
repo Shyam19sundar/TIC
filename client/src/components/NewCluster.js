@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
-import Button from 'react-bootstrap/esm/Button'
 import axios from "../axios"
 import "../css/clustermember.css"
+import { useHistory } from "react-router-dom"
 
 function NewCluster() {
+    const history = useHistory();
+
     const [name, setname] = useState("")
     const handlerSubmit = (e) => {
         e.preventDefault()
         axios.post("/new-cluster", { cluster_name: name })
-            .then(res => console.log(res.data))
+            .then(res => {
+                if (res.status == 200) {
+                    history.push("/admin")
+                }
+            })
             .catch(err => console.log(err))
     }
 
