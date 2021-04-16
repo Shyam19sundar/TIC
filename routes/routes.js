@@ -10,6 +10,7 @@ const FormatCluster = require('../models/formatClusters')
 const Admin = require('../models/admin')
 const Subscribe = require('../models/subscriber')
 const Verify = require('../models/verify')
+const Cluster = require('../models/cluster')
 
 var transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com", // hostname

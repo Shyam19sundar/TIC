@@ -6,6 +6,8 @@ import axios from '../axios'
 import YearPicker from "react-year-picker";
 import Modal from 'react-bootstrap/Modal'
 import '../css/NewMember.css'
+import ReactLoading from 'react-loading';
+import $ from 'jquery'
 
 function NewMember() {
 
@@ -78,6 +80,8 @@ function NewMember() {
 
     const handleSubmit = e => {
         e.preventDefault()
+        $('#loadingUpload').show()
+        $('.new__member').css({ opacity: '0.3' })
         if (endyear - startyear === 1) {
             const date = Date.now()
             const uploadTask = storage.ref(`images/${image.name}_${date}`).put(image);
@@ -109,6 +113,7 @@ function NewMember() {
                                 photo: url
                             }).then(res => {
                                 if (res.status == 200) {
+                                    $('#loadingUpload').hide()
                                     history.push("/admin")
                                 }
                             }
@@ -127,8 +132,9 @@ function NewMember() {
     }, [])
     return (
         <div className='new__member'>
+            <ReactLoading id='loadingUpload' color='#000000' type='spinningBubbles' />
             <p>Add Member</p>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <div>
                         <div>Name</div>
@@ -173,10 +179,9 @@ function NewMember() {
                             )}
                         </select>
                     </div>
+                    <button type='submit'>Add Member</button>
                 </div>
-
             </form>
-            <button onClick={handleSubmit}>Add Member</button>
             <Modal
                 className="modal"
                 show={show}
