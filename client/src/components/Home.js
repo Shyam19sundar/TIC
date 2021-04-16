@@ -357,7 +357,7 @@ function Home() {
                         </a>
                         <p>----</p>
                         <a target='_blank' rel="noopener noreferrer" href='https://www.linkedin.com/in/techinclub'>
-                            <img src="facebook.svg" width="25px" height="30px" />
+                            <img src="linkedin.svg" width="25px" height="30px" />
                         </a>
 
                         {/* <label>Instagram</label> */}

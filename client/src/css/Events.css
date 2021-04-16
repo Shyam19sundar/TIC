@@ -21,14 +21,16 @@
     top: 30%;
     right: -1%;
     transform: scaleX(-1);
-    z-index: 0;
+    z-index: 0 !important;
+
 }
 
 .left-eventsLines{
     position: fixed;
     top: 30%;
     left: -1%;
-    z-index: 0;
+    z-index: 0 !important;
+
 }
 
 .events {
@@ -134,6 +136,8 @@
     width: 90vw;
     margin: 10px auto;
     margin-bottom: 30px !important;
+    position: relative;
+    z-index: 10;
 }
 .events_container::before {
 	content: '';
@@ -159,9 +163,9 @@
 	flex-direction: row-reverse;
 }
 .event_single {
-    position: relative;
+    /* position: relative; */
     width: 45%;
-    z-index: 1000;
+    /* z-index: ; */
 }
 .event_single:nth-child(odd) {
 	clear: both;
@@ -261,6 +265,7 @@
 	left: 50%;
 	margin-top: 25px;
 	margin-left: -15px;
+    z-index: 1;  
 }
 .event_single:nth-child(even) .timeline_item::before {
     content: '';
@@ -358,6 +363,7 @@
         width: 90%;
         align-items: center;
         justify-self: center;
+        padding-left: 20px;
     }
     .events_container::before {
         position: absolute; 
@@ -429,6 +435,12 @@
         position: absolute;
         right: 10px;
         bottom: 10px;
+    }
+    .event_single:nth-child(odd) .timeline_item span {
+        border-radius: 0 0 15px 0 ;
+    }
+    .event_single:nth-child(even) .timeline_item span {
+        border-radius: 0 0 15px 0 ;
     }
    
 }

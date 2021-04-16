@@ -274,14 +274,14 @@ router.post("/new-member", (req, res) => {
     var count = 0;
     var teamExistance = true;
     FormatCluster.find({}, (err, found) => {
-        const member = new Member({
+        const member = {
             membername: req.body.name,
             photo: req.body.photo,
             linkedIn: req.body.linkedIn,
             github: req.body.github,
             dept: req.body.dept,
             year: req.body.year,
-        })
+        }
         if (!err) {
             if (found.length === 0) {
                 FormatCluster.create({
@@ -502,7 +502,6 @@ router.post('/verify-and-change-password', (req, res) => {
 router.post("/signup", (req, res) => {
     // const email = req.body.email;
     // const pass = req.body.password;
-    console.log("ABCD");
     const email = 'iotclubsastra@gmail.com'
     const pass = 'iot@Sastra21'
     bcrypt.genSalt(10, function (err, salt) {

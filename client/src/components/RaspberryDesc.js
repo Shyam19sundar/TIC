@@ -196,7 +196,7 @@ return (
           {/* </Tooltip>
             <Tooltip title="Disabled"> */}
           <IconButton aria-label="Disabled">
-            <img src="icons.png" alt="" />
+            <img src="icons.PNG" alt="" />
           </IconButton>
           {/* </Tooltip>
             <Tooltip title="Stop/Restart backend"> */}
