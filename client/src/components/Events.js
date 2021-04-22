@@ -3,12 +3,11 @@ import '../css/Events.css'
 import Bounce from 'react-reveal/Bounce';
 import axios from '../axios.js'
 import { Link } from 'react-router-dom';
-import Header from './Header';
 import $ from "jquery"
 
 function Events() {
     const [events, setEvents] = useState([])
-    const [upcoming, setUpcoming] = useState()
+    const [upcoming, setUpcoming] = useState(null)
     const [length, setLength] = useState(Number)
 
     useEffect(() => {
@@ -21,10 +20,9 @@ function Events() {
         axios.get('home-events')
             .then(res => {
                 if (res.status !== 204) {
-                    console.log(res.data)
                     setUpcoming(res.data.arr)
                 }
-                else if (res.status === 204) {
+                else if (res.data.arr.length === 0) {
                     setUpcoming(null)
                     console.log('No events found')
                 }
@@ -76,6 +74,8 @@ function Events() {
         propRight = true
         propLeft = false
     }
+
+    console.log(upcoming)
 
     return (
         <div className='events'>

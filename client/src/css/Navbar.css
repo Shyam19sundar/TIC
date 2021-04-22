@@ -1,3 +1,6 @@
+.headerFull * {
+  background-color: transparent;
+}
 #navbar-burger {
     display: none;
   }
@@ -53,7 +56,7 @@
       transition: all 1s;
     }
     .menu-items * {
-      /* background-color: rgba(1, 12, 38, 0.9); */
+      background-color: rgba(1, 12, 38, 0.9);
       margin: 0;
       padding: 10px 0;
       font-size: 13px;
@@ -62,7 +65,7 @@
       color: aliceblue;
     }
     .menu-items {
-      background-color: rgb(1, 12, 38, 0.9);
+      /* background-color: rgb(1, 12, 38, 0.9); */
       width: 100%;
       padding: 0;
       margin-left: -15px;

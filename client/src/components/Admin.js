@@ -63,12 +63,15 @@ function Admin() {
             if (res.data)
                 sessionStorage.setItem("firebaseConfig", JSON.stringify(res.data));
         })
+    }, [])
 
+    useEffect(() => {
         if (window.location.hash)
             setcategory(window.location.hash.slice(window.location.hash.lastIndexOf('?') + 1))
         else
             setcategory(null)
     }, [window.location.hash])
+
     const [category, setcategory] = useState(null)
 
     const getFirebaseInfo = () => {

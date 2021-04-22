@@ -2,11 +2,9 @@ import React, { useEffect, useState } from 'react'
 import axios from '../axios.js'
 import '../css/RegisterEvent.css'
 
-
-
 function RegisterEvent() {
     const path = window.location.hash
-    const _id = path.slice(9)
+    const _id = path.slice(11)
     const [singleEvent, setSingleEvent] = useState(Object)
     useEffect(() => {
         axios.get('/register-event', {

@@ -4,6 +4,7 @@ import axios from '../axios'
 import "../css/RegisterEvents.css"
 import ReactLoading from 'react-loading';
 import $ from 'jquery'
+import { useHistory } from 'react-router-dom';
 
 function RegisterEvents() {
     const [image, setImage] = useState('')
@@ -13,6 +14,7 @@ function RegisterEvents() {
     const [time, settime] = useState('')
     const [eventDate, setEventDate] = useState('')
     const [form, setform] = useState('')
+    const history = useHistory()
     const handleChange = e => {
         if (e.target.files[0]) {
             var temp = e.target.files[0]
@@ -54,6 +56,7 @@ function RegisterEvents() {
                         }).then(res => {
                             $('.register__events').css({ opacity: '1' })
                             $('#loadingUpload').hide()
+                            history.push('/admin')
                         })
                             .catch(err => console.log(err))
                     });

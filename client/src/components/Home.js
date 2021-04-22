@@ -56,10 +56,10 @@ function Home() {
 
     // console.log(scrolled)
 
-    useEffect(() => {
-        axios.post("/signup")
-            .then(res => console.log("Data"))
-    }, [])
+    // useEffect(() => {
+    //     axios.post("/signup")
+    //         .then(res => console.log("Data"))
+    // }, [])
 
     //For GSAAAAPPP
     useEffect(() => {
@@ -518,7 +518,7 @@ function Home() {
                                         <h6 className="card-title">Next Event</h6>
                                         <h3>{nextHolder[0].event_name}</h3>
                                         <div className="card-desc">
-                                            <p>{nextHolder[0].event_desc.substr(0, 150)}... <Link to={`/events/${nextHolder[0]._id}`}>READ&nbsp;MORE</Link></p>
+                                            <p>{nextHolder[0].event_desc.substr(0, 150)}... <Link to={`/register/${nextHolder[0]._id}`}>READ&nbsp;MORE</Link></p>
                                         </div>
                                         <div className="card-flex">
                                             <div>

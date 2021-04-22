@@ -10,13 +10,25 @@ function Navbar() {
     const [path, setpath] = useState("");
     useEffect(() => {
         setpath(window.location.hash);
-
+        console.log(path)
         if (path.includes('home')) {
-            $(".headerFull").css("borderBottom", "2px solid white");
-        } else {
             $(".headerFull").css("borderBottom", "none");
+            $(".inside-nav-home").css("borderBottom", "1px solid white");
+        } else if (path.includes('events')) {
+            $(".headerFull").css("borderBottom", "2px solid white");
+            $("inside-nav-event").css("borderBottom", "1px solid white");
+        } else if (path.includes('clusters')) {
+            $(".headerFull").css("borderBottom", "2px solid white");
+            $("inside-nav-cluster").css("borderBottom", "1px solid white");
+        } else if (path.includes('resources')) {
+            $(".headerFull").css("borderBottom", "2px solid white");
+            $("inside-nav-res").css("borderBottom", "1px solid white");
+        } else if (path.includes('contact')) {
+            $(".headerFull").css("borderBottom", "2px solid white");
+            $("inside-nav-contact").css("borderBottom", "1px solid white");
         }
-    }, []);
+    }, [window.location.hash]);
+
 
     const handleMenu = () => {
         $(".menu-items").toggle(".show-menu");
@@ -41,27 +53,27 @@ function Navbar() {
             <ClearIcon id="navbar-cancel" onClick={() => handleCancel()} />
             <div className="menu-items">
                 <div>
-                    <Link to="/" className="inside-nav" onClick={handleClick}>
+                    <Link to="/" className="inside-nav inside-nav-home" onClick={handleClick}>
                         Home
           </Link>
                 </div>
                 <div>
-                    <Link to="/events" className="inside-nav" onClick={handleClick}>
+                    <Link to="/events" className="inside-nav inside-nav-event" onClick={handleClick}>
                         Events
           </Link>
                 </div>
                 <div>
-                    <Link to="/clusters" className="inside-nav" onClick={handleClick}>
+                    <Link to="/clusters" className="inside-nav inside-nav-cluster" onClick={handleClick}>
                         Clusters
           </Link>
                 </div>
                 <div>
-                    <Link to="/resources" className="inside-nav" onClick={handleClick}>
+                    <Link to="/resources" className="inside-nav inside-nav-res" onClick={handleClick}>
                         Resources
           </Link>
                 </div>
                 <div>
-                    <Link to="/contact" className="inside-nav" onClick={handleClick}>
+                    <Link to="/contact" className="inside-nav inside-nav-contact" onClick={handleClick}>
                         Contact
           </Link>
                 </div>

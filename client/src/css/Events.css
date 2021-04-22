@@ -162,6 +162,12 @@
 .event_single:nth-child(odd) .timeline_item {
 	flex-direction: row-reverse;
 }
+
+.events h4{
+    color: wheat;
+    text-align: center;
+}
+
 .event_single {
     /* position: relative; */
     width: 45%;
