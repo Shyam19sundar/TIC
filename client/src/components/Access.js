@@ -1,5 +1,15 @@
 import axios from '../axios.js'
 
+export const hasAccess = async (accessToken, refreshToken) => {
+    if (!refreshToken)
+        return null
+    else if (accessToken == undefined) {
+        accessToken = await refresh(refreshToken)
+        return accessToken
+    }
+    return accessToken
+}
+
 export const refresh = () => {
     let cookie = document.cookie;
     var getCookie = cookie.split(/[=;]+/)

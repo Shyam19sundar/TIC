@@ -12,11 +12,34 @@ const Subscribe = require('../models/subscriber')
 const Verify = require('../models/verify')
 const Cluster = require('../models/cluster')
 
+const auth = async (req, res, next) => {
+    var accessToken = req.headers["authorization"];
+    if (!accessToken)
+        return res.status(499).json({
+            message: "Access Token required",
+        });
+    accessToken = accessToken.split(" ")[1];
+    jwt.verify(accessToken, "AccessGiven", async (err, user) => {
+        if (user) {
+            res.locals.user = user;
+            next();
+        } else if (err.message === "jwt expired") {
+            return res.status(498).json({
+                message: "Access Token expired",
+            });
+        } else
+            return res.status(401).json({
+                message: "User not authorized",
+            });
+    });
+};
+
 var transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com", // hostname
     secureConnection: false, // TLS requires secureConnection to be false
     port: 587, // port for secure SMTP
     auth: {
+        type: "login",
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
     },
@@ -44,6 +67,7 @@ router.post("/subscribe", (req, res) => {
                 }
                 else {
                     Subscribe.create({ subscribe_email: req.body.subscribe })
+                    console.log(process.env.SMTP_USER);
                     res.status(200).json("Subscribed successfully")
                     var mailOptions = {
                         from: process.env.SMTP_USER,
@@ -68,11 +92,12 @@ router.post("/subscribe", (req, res) => {
     }
 });
 
-router.post("/sendmailToSubscribers", (req, res) => {
+router.post("/sendmailToSubscribers", auth, (req, res) => {
     try {
         Subscribe.find({}, (err, found) => {
             if (!err && found) {
                 const subscribers = found.map(single => single.subscribe_email)
+                console.log(subscribers)
                 var mailOptions = {
                     from: process.env.SMTP_USER,
                     to: subscribers,
@@ -98,7 +123,8 @@ router.post("/sendmailToSubscribers", (req, res) => {
     }
 })
 
-router.post("/new-event", (req, res) => {
+router.post("/new-event", auth, (req, res) => {
+    console.log(req.body)
     FinishedEvents.create({
         event_name: req.body.name,
         event_sponsors: req.body.sponsors,
@@ -121,7 +147,7 @@ router.get('/cluster-details', (req, res) => {
     })
 })
 
-router.post("/register-event", (req, res) => {
+router.post("/register-event", auth, (req, res) => {
     RegisterEvents.create({
         event_name: req.body.name,
         event_desc: req.body.desc,
@@ -147,7 +173,7 @@ router.get("/getFirebaseInfo", (req, res) => {
     res.json(firebaseConfig)
 })
 
-router.post("/new-cluster", (req, res) => {
+router.post("/new-cluster", auth, (req, res) => {
     Cluster.create({
         cluster_name: req.body.cluster_name
     })
@@ -205,14 +231,14 @@ router.get('/register-event', (req, res) => {
         }
     })
 })
-router.delete('/finished-register-events', (req, res) => {
-    RegisterEvents.deleteOne({ _id: req.query.id })
+router.post('/finished-register-events', auth, (req, res) => {
+    RegisterEvents.deleteOne({ _id: req.body.id })
         .then(() => res.send("Data Deleted"))
         .catch(err => console.log(err))
 })
 
-router.delete('/deleted-finished-events', (req, res) => {
-    FinishedEvents.deleteOne({ _id: req.query.id })
+router.post('/deleted-finished-events', auth, (req, res) => {
+    FinishedEvents.deleteOne({ _id: req.body.id })
         .then(() => res.send("Data Deleted"))
         .catch(err => console.log(err))
 })
@@ -271,7 +297,7 @@ router.get('/current-batch-members', (req, res) => {
     })
 })
 
-router.post("/new-member", (req, res) => {
+router.post("/new-member", auth, (req, res) => {
     var count = 0;
     var teamExistance = true;
     FormatCluster.find({}, (err, found) => {
@@ -396,7 +422,7 @@ router.post("/login", (req, res) => {
     })
 })
 
-router.post('/change-password', (req, res) => {
+router.post('/change-password', auth, (req, res) => {
     Admin.findOne({ email: 'iotclubsastra@gmail.com' }, (err, found) => {
         if (!err && found) {
             bcrypt.compare(req.body.currentPassword, found.password, (err, result) => {

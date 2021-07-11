@@ -5,6 +5,8 @@ import '../css/Dashboard.css'
 import { useHistory, Link } from "react-router-dom";
 import DeleteEvents from './DeleteEvents'
 import ChangePassword from './ChangePassword'
+import Cookies from 'js-cookie';
+import { refresh, hasAccess } from './Access.js'
 
 function Dashboard() {
     const [upcomingEvents, setupcomingEvents] = useState()
@@ -16,95 +18,91 @@ function Dashboard() {
     const [content, setcontent] = useState('')
     const history = useHistory();
 
-    // const getRoom = async (access, refreshToken) => {
-    //     return new Promise((resolve, reject) => {
-    //         axios
-    //             .post(
-    //                 "/roomMessage",
-    //                 {
-    //                     room: room.roomName,
-    //                     message: message,
-    //                     name: user?.name
-    //                 },
-    //                 {
-    //                     headers: {
-    //                         authorization: `Bearer ${access}`,
-    //                     },
-    //                 }
-    //             )
-    //             .then(
-    //                 (response) => {
-    //                     // setResponse(response.data);
-    //                     resolve(true);
-    //                 },
-    //                 async (error) => {
-    //                     if (error.response.status === 401)
-    //                         console.log("You are not authorized!");
-    //                     else if (error.response.status === 498) {
-    //                         const access = await refresh(refreshToken);
-    //                         return await getRoom(access, refreshToken);
-    //                     }
-    //                     resolve(false);
-    //                 }
-    //             );
-    //     });
-    // };
+    const sendEmail = async (access, refreshToken) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post(
+                    "/sendmailToSubscribers",
+                    {
+                        subject: subject,
+                        content: content
+                    },
+                    {
+                        headers: {
+                            authorization: `Bearer ${access}`,
+                        },
+                    }
+                )
+                .then(
+                    (response) => {
+                        resolve(true);
+                    },
+                    async (error) => {
+                        if (error.response.status === 401)
+                            console.log("You are not authorized!");
+                        else if (error.response.status === 498) {
+                            const access = await refresh(refreshToken);
+                            return await sendEmail(access, refreshToken);
+                        }
+                        resolve(false);
+                    }
+                );
+        });
+    };
 
-    // const accessRoom = async () => {
-    //     let accessToken = Cookies.get("access");
-    //     let refreshToken = Cookies.get("refresh");
-    //     const access = await hasAccess(accessToken, refreshToken);
-    //     if (!access) {
-    //         console.log("You are not authorized");
-    //     } else {
-    //         await getRoom(access, refreshToken);
-    //     }
-    // };
+    const hasAccessForSendEmail = async () => {
+        let accessToken = Cookies.get("access");
+        let refreshToken = Cookies.get("refresh");
+        const access = await hasAccess(accessToken, refreshToken);
+        if (!access) {
+            console.log("You are not authorized");
+        } else {
+            await sendEmail(access, refreshToken);
+        }
+    };
 
-    // const getRoom = async (access, refreshToken) => {
-    //     return new Promise((resolve, reject) => {
-    //         axios
-    //             .post(
-    //                 "/roomMessage",
-    //                 {
-    //                     room: room.roomName,
-    //                     message: message,
-    //                     name: user?.name
-    //                 },
-    //                 {
-    //                     headers: {
-    //                         authorization: `Bearer ${access}`,
-    //                     },
-    //                 }
-    //             )
-    //             .then(
-    //                 (response) => {
-    //                     // setResponse(response.data);
-    //                     resolve(true);
-    //                 },
-    //                 async (error) => {
-    //                     if (error.response.status === 401)
-    //                         console.log("You are not authorized!");
-    //                     else if (error.response.status === 498) {
-    //                         const access = await refresh(refreshToken);
-    //                         return await getRoom(access, refreshToken);
-    //                     }
-    //                     resolve(false);
-    //                 }
-    //             );
-    //     });
-    // };
+    const finishedRegisterEvents = async (access, refreshToken, singleRemainder) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post(
+                    "/finished-register-events",
+                    {
+                        id: singleRemainder._id
+                    },
+                    {
+                        headers: {
+                            authorization: `Bearer ${access}`,
+                        },
+                    }
+                )
+                .then(
+                    (response) => {
+                        history.push("/admin?add-events");
+                        resolve(true);
+                    },
+                    async (error) => {
+                        if (error.response.status === 401)
+                            console.log("You are not authorized!");
+                        else if (error.response.status === 498) {
+                            const access = await refresh(refreshToken);
+                            return await finishedRegisterEvents(access, refreshToken, singleRemainder);
+                        }
+                        resolve(false);
+                    }
+                );
+        });
+    };
 
-    // const accessRoom = async () => {
-    //     let accessToken = Cookies.get("access");
-    //     let refreshToken = Cookies.get("refresh");
-    //     const access = await hasAccess(accessToken, refreshToken);
-    //     if (!access) {
-    //         console.log("You are not authorized");
-    //     } else {
-    //         await getRoom(access, refreshToken);
-    //     }
-    // };
+    const hasAccessForFinishedEvents = async (singleRemainder) => {
+        let accessToken = Cookies.get("access");
+        let refreshToken = Cookies.get("refresh");
+        const access = await hasAccess(accessToken, refreshToken);
+        if (!access) {
+            console.log("You are not authorized");
+        } else {
+            await finishedRegisterEvents(access, refreshToken, singleRemainder);
+        }
+    };
 
     useEffect(() => {
         axios.get('/noOfSubscribers').then(res => setnoOfSubscribers(res.data))
@@ -128,24 +126,11 @@ function Dashboard() {
     }, [])
 
     const handleSendEmail = () => {
-        axios.post('/sendmailToSubscribers', {
-            subject: subject,
-            content: content
-        }).then(res => console.log(res.data))
-            .catch(err => console.log(err))
+        hasAccessForSendEmail()
     }
 
     const handleClick = (singleRemainder) => {
-        axios.delete('/finished-register-events', {
-            params: {
-                id: singleRemainder._id
-            }
-        })
-            .then(res => {
-                console.log(res.data)
-                history.push("/admin?add-events");
-            })
-            .catch(err => console.log(err))
+        hasAccessForFinishedEvents(singleRemainder)
     }
 
     return (
@@ -173,7 +158,7 @@ function Dashboard() {
                                         <small>Remainder</small>
                                         <br />Details not updated for the event&nbsp;<label>{singleRemainder.event_name}</label>
                                         &nbsp;conducted on&nbsp;
-                                    <label>{`${singleRemainder.event_date} at ${singleRemainder.event_time}`}</label>
+                                        <label>{`${singleRemainder.event_date} at ${singleRemainder.event_time}`}</label>
                                     </div>
                                     <div className="remainder-right">
                                         <div onClick={() => handleClick(singleRemainder)}>Manage</div>
@@ -262,10 +247,10 @@ function Dashboard() {
                 <div className="change-deleteHolder">
                     <div className="delete-eventsButton" onClick={() => setshow(true)}>
                         Delete<br /> Finished Events
-                </div>
+                    </div>
                     <div className="delete-eventsButton" onClick={() => setchangePassShow(true)}>
                         Change<br /> Password
-                </div>
+                    </div>
                 </div>
                 <div className="hocus-color">
                     <p>Designed and Developed by Hocus Pocus</p>

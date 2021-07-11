@@ -2,68 +2,69 @@ import React, { useEffect, useState } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import axios from '../axios'
 import { useHistory } from "react-router-dom";
+import Cookies from 'js-cookie';
+import { refresh, hasAccess } from './Access.js'
 
 function DeleteEvents(show) {
 
     const [events, setevents] = useState()
     const history = useHistory();
 
-    // const getRoom = async (access, refreshToken) => {
-    //     return new Promise((resolve, reject) => {
-    //         axios
-    //             .post(
-    //                 "/roomMessage",
-    //                 {
-    //                     room: room.roomName,
-    //                     message: message,
-    //                     name: user?.name
-    //                 },
-    //                 {
-    //                     headers: {
-    //                         authorization: `Bearer ${access}`,
-    //                     },
-    //                 }
-    //             )
-    //             .then(
-    //                 (response) => {
-    //                     // setResponse(response.data);
-    //                     resolve(true);
-    //                 },
-    //                 async (error) => {
-    //                     if (error.response.status === 401)
-    //                         console.log("You are not authorized!");
-    //                     else if (error.response.status === 498) {
-    //                         const access = await refresh(refreshToken);
-    //                         return await getRoom(access, refreshToken);
-    //                     }
-    //                     resolve(false);
-    //                 }
-    //             );
-    //     });
-    // };
+    const DeleteEvent = async (access, refreshToken, singleEvent) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post(
+                    "/deleted-finished-events",
+                    {
+                        id: singleEvent._id
+                    },
+                    {
+                        headers: {
+                            authorization: `Bearer ${access}`,
+                        },
+                    }
+                )
+                .then(
+                    (response) => {
+                        history.push("/admin");
+                        resolve(true);
+                    },
+                    async (error) => {
+                        if (error.response.status === 401)
+                            console.log("You are not authorized!");
+                        else if (error.response.status === 498) {
+                            const access = await refresh(refreshToken);
+                            return await DeleteEvent(access, refreshToken);
+                        }
+                        resolve(false);
+                    }
+                );
+        });
+    };
 
-    // const accessRoom = async () => {
-    //     let accessToken = Cookies.get("access");
-    //     let refreshToken = Cookies.get("refresh");
-    //     const access = await hasAccess(accessToken, refreshToken);
-    //     if (!access) {
-    //         console.log("You are not authorized");
-    //     } else {
-    //         await getRoom(access, refreshToken);
-    //     }
-    // };
+    const hasAccessForDeleteEvent = async (singleEvent) => {
+        let accessToken = Cookies.get("access");
+        let refreshToken = Cookies.get("refresh");
+        const access = await hasAccess(accessToken, refreshToken);
+        if (!access) {
+            console.log("You are not authorized");
+        } else {
+            await DeleteEvent(access, refreshToken, singleEvent);
+        }
+    };
 
     const handleDeleteEvent = (singleEvent) => {
-        axios.delete('/deleted-finished-events', {
-            params: {
-                id: singleEvent._id
-            }
-        })
-            .then(res => {
-                console.log(res.data)
-                history.push("/admin");
-            })
-            .catch(err => console.log(err))
+        hasAccessForDeleteEvent(singleEvent)
+        // axios.delete('/deleted-finished-events', {
+        //     params: {
+        //         id: singleEvent._id
+        //     }
+        // })
+        //     .then(res => {
+        //         console.log(res.data)
+        //         history.push("/admin");
+        //     })
+        //     .catch(err => console.log(err))
     }
 
     useEffect(() => {
@@ -83,7 +84,7 @@ function DeleteEvents(show) {
                 <Modal.Header closeButton>
                     <Modal.Title id="example-custom-modal-styling-title">
                         Finished Events
-          </Modal.Title>
+                    </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div>

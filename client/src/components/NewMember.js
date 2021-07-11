@@ -8,6 +8,8 @@ import Modal from 'react-bootstrap/Modal'
 import '../css/NewMember.css'
 import ReactLoading from 'react-loading';
 import $ from 'jquery'
+import Cookies from 'js-cookie';
+import { refresh, hasAccess } from './Access.js'
 
 function NewMember() {
 
@@ -33,50 +35,57 @@ function NewMember() {
         }
     }
 
-    // const getRoom = async (access, refreshToken) => {
-    //     return new Promise((resolve, reject) => {
-    //         axios
-    //             .post(
-    //                 "/roomMessage",
-    //                 {
-    //                     room: room.roomName,
-    //                     message: message,
-    //                     name: user?.name
-    //                 },
-    //                 {
-    //                     headers: {
-    //                         authorization: `Bearer ${access}`,
-    //                     },
-    //                 }
-    //             )
-    //             .then(
-    //                 (response) => {
-    //                     // setResponse(response.data);
-    //                     resolve(true);
-    //                 },
-    //                 async (error) => {
-    //                     if (error.response.status === 401)
-    //                         console.log("You are not authorized!");
-    //                     else if (error.response.status === 498) {
-    //                         const access = await refresh(refreshToken);
-    //                         return await getRoom(access, refreshToken);
-    //                     }
-    //                     resolve(false);
-    //                 }
-    //             );
-    //     });
-    // };
+    const newMember = async (access, refreshToken, url) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post(
+                    "/new-member",
+                    {
+                        name: name,
+                        startyear: startyear,
+                        endyear: endyear,
+                        cluster: cluster,
+                        year: year,
+                        dept: dept,
+                        linkedIn: linkedIn,
+                        github: github,
+                        photo: url
+                    },
+                    {
+                        headers: {
+                            authorization: `Bearer ${access}`,
+                        },
+                    }
+                )
+                .then(
+                    (response) => {
+                        $('#loadingUpload').hide()
+                        history.push("/admin")
+                        resolve(true);
+                    },
+                    async (error) => {
+                        if (error.response.status === 401)
+                            console.log("You are not authorized!");
+                        else if (error.response.status === 498) {
+                            const access = await refresh(refreshToken);
+                            return await newMember(access, refreshToken, url);
+                        }
+                        resolve(false);
+                    }
+                );
+        });
+    };
 
-    // const accessRoom = async () => {
-    //     let accessToken = Cookies.get("access");
-    //     let refreshToken = Cookies.get("refresh");
-    //     const access = await hasAccess(accessToken, refreshToken);
-    //     if (!access) {
-    //         console.log("You are not authorized");
-    //     } else {
-    //         await getRoom(access, refreshToken);
-    //     }
-    // };
+    const hasAccessForNewMember = async (url) => {
+        let accessToken = Cookies.get("access");
+        let refreshToken = Cookies.get("refresh");
+        const access = await hasAccess(accessToken, refreshToken);
+        if (!access) {
+            console.log("You are not authorized");
+        } else {
+            await newMember(access, refreshToken, url);
+        }
+    };
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -101,24 +110,25 @@ function NewMember() {
                         .child(`${image.name}_${date}`)
                         .getDownloadURL()
                         .then(url => {
-                            axios.post("/new-member", {
-                                name: name,
-                                startyear: startyear,
-                                endyear: endyear,
-                                cluster: cluster,
-                                year: year,
-                                dept: dept,
-                                linkedIn: linkedIn,
-                                github: github,
-                                photo: url
-                            }).then(res => {
-                                if (res.status == 200) {
-                                    $('#loadingUpload').hide()
-                                    history.push("/admin")
-                                }
-                            }
-                            )
-                                .catch(err => console.log(err))
+                            hasAccessForNewMember(url)
+                            // axios.post("/new-member", {
+                            //     name: name,
+                            //     startyear: startyear,
+                            //     endyear: endyear,
+                            //     cluster: cluster,
+                            //     year: year,
+                            //     dept: dept,
+                            //     linkedIn: linkedIn,
+                            //     github: github,
+                            //     photo: url
+                            // }).then(res => {
+                            //     if (res.status == 200) {
+                            //         $('#loadingUpload').hide()
+                            //         history.push("/admin")
+                            //     }
+                            // }
+                            // )
+                            //     .catch(err => console.log(err))
                         });
                 }
             )
@@ -194,11 +204,11 @@ function NewMember() {
                 </Modal.Header>
                 <Modal.Body>
                     Please enter Valid Year
-        </Modal.Body>
+                </Modal.Body>
                 <Modal.Footer>
                     <button onClick={handleClose}>
                         Close
-          </button>
+                    </button>
                 </Modal.Footer>
             </Modal>
         </div>

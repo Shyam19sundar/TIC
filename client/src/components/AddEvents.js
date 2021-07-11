@@ -5,6 +5,8 @@ import $ from "jquery"
 import { useHistory } from 'react-router-dom';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import ReactLoading from 'react-loading';
+import Cookies from 'js-cookie';
+import { refresh, hasAccess } from './Access.js'
 
 function AddEvents() {
     const [name, setname] = useState("")
@@ -30,60 +32,61 @@ function AddEvents() {
         }
     }, 1000);
 
-    // const getRoom = async (access, refreshToken) => {
-    //     return new Promise((resolve, reject) => {
-    //         axios
-    //             .post(
-    //                 "/new-event",
-    //                 {
-    //                     name: name,
-    //                     sponsors: sponsors,
-    //                     date: eventDate,
-    //                     desc: desc,
-    //                     winners: winners,
-    //                     noofparticipants: noofparticipants,
-    //                     cluster: cluster,
-    //                     images: urlImagestate
-    //                 },
-    //                 {
-    //                     headers: {
-    //                         authorization: `Bearer ${access}`,
-    //                     },
-    //                 }
-    //             )
-    //             .then(
-    //                 (response) => {
-    //                     // setResponse(response.data);
-    //                     resolve(true);
-    //                 },
-    //                 async (error) => {
-    //                     if (error.response.status === 401)
-    //                         console.log("You are not authorized!");
-    //                     else if (error.response.status === 498) {
-    //                         const access = await refresh(refreshToken);
-    //                         return await getRoom(access, refreshToken);
-    //                     }
-    //                     resolve(false);
-    //                 }
-    //             );
-    //     });
-    // };
+    const addEvents = async (access, refreshToken) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post(
+                    "/new-event",
+                    {
+                        name: name,
+                        sponsors: sponsors,
+                        date: eventDate,
+                        desc: desc,
+                        winners: winners,
+                        noofparticipants: noofparticipants,
+                        cluster: cluster,
+                        images: urlImagestate
+                    },
+                    {
+                        headers: {
+                            authorization: `Bearer ${access}`,
+                        },
+                    }
+                )
+                .then(
+                    (response) => {
+                        // setResponse(response.data);
+                        resolve(true);
+                    },
+                    async (error) => {
+                        if (error.response.status === 401)
+                            console.log("You are not authorized!");
+                        else if (error.response.status === 498) {
+                            const access = await refresh(refreshToken);
+                            return await addEvents(access, refreshToken);
+                        }
+                        resolve(false);
+                    }
+                );
+        });
+    };
 
-    // const accessRoom = async () => {
-    //     let accessToken = Cookies.get("access");
-    //     let refreshToken = Cookies.get("refresh");
-    //     const access = await hasAccess(accessToken, refreshToken);
-    //     if (!access) {
-    //         console.log("You are not authorized");
-    //     } else {
-    //         await getRoom(access, refreshToken);
-    //     }
-    // };
+    const hasAccessForAddEvents = async () => {
+        let accessToken = Cookies.get("access");
+        let refreshToken = Cookies.get("refresh");
+        const access = await hasAccess(accessToken, refreshToken);
+        if (!access) {
+            console.log("You are not authorized");
+        } else {
+            await addEvents(access, refreshToken);
+        }
+    };
 
     useEffect(() => {
         axios.get("/clusters").then(res => setlistofClusterss(res.data))
         if (isCondnTrue) {
-            // accessRoom()
+            console.log("object")
+            hasAccessForAddEvents()
         }
     }, [isCondnTrue])
 
@@ -123,17 +126,7 @@ function AddEvents() {
             }
         }
         else {
-            axios.post("/new-event", {
-                name: name,
-                sponsors: sponsors,
-                date: eventDate,
-                desc: desc,
-                winners: winners,
-                noofparticipants: noofparticipants,
-                cluster: cluster
-            }).then(res => console.log(res.data))
-                .catch(err => console.log(err))
-
+            alert("Images should be Uploaded");
         }
     }
 
@@ -144,6 +137,7 @@ function AddEvents() {
             setImages([...images, temp])
         }
     }
+
     return (
         <div className="add__events">
             <ReactLoading id='loadingUpload' color='#000000' type='spinningBubbles' />

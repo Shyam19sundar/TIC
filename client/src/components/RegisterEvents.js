@@ -5,6 +5,8 @@ import "../css/RegisterEvents.css"
 import ReactLoading from 'react-loading';
 import $ from 'jquery'
 import { useHistory } from 'react-router-dom';
+import { refresh, hasAccess } from './Access.js'
+import Cookies from 'js-cookie'
 
 function RegisterEvents() {
     const [image, setImage] = useState('')
@@ -15,6 +17,58 @@ function RegisterEvents() {
     const [eventDate, setEventDate] = useState('')
     const [form, setform] = useState('')
     const history = useHistory()
+
+    const RegisterEvent = async (access, refreshToken, url) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post(
+                    "/register-event",
+                    {
+                        name: name,
+                        sponsors: sponsors,
+                        desc: desc,
+                        date: eventDate,
+                        form: form,
+                        time: time,
+                        poster: url
+                    },
+                    {
+                        headers: {
+                            authorization: `Bearer ${access}`,
+                        },
+                    }
+                )
+                .then(
+                    (response) => {
+                        $('.register__events').css({ opacity: '1' })
+                        $('#loadingUpload').hide()
+                        history.push('/admin')
+                        resolve(true);
+                    },
+                    async (error) => {
+                        if (error.response.status === 401)
+                            console.log("You are not authorized!");
+                        else if (error.response.status === 498) {
+                            const access = await refresh(refreshToken);
+                            return await RegisterEvent(access, refreshToken, url);
+                        }
+                        resolve(false);
+                    }
+                );
+        });
+    };
+
+    const hasAccessForRegisterEvent = async (url) => {
+        let accessToken = Cookies.get("access");
+        let refreshToken = Cookies.get("refresh");
+        const access = await hasAccess(accessToken, refreshToken);
+        if (!access) {
+            console.log("You are not authorized");
+        } else {
+            await RegisterEvent(access, refreshToken, url);
+        }
+    };
+
     const handleChange = e => {
         if (e.target.files[0]) {
             var temp = e.target.files[0]
@@ -45,20 +99,21 @@ function RegisterEvents() {
                     .child(`${image.name}_${date}`)
                     .getDownloadURL()
                     .then(url => {
-                        axios.post("/register-event", {
-                            name: name,
-                            sponsors: sponsors,
-                            desc: desc,
-                            date: eventDate,
-                            form: form,
-                            time: time,
-                            poster: url
-                        }).then(res => {
-                            $('.register__events').css({ opacity: '1' })
-                            $('#loadingUpload').hide()
-                            history.push('/admin')
-                        })
-                            .catch(err => console.log(err))
+                        hasAccessForRegisterEvent(url)
+                        // axios.post("/register-event", {
+                        //     name: name,
+                        //     sponsors: sponsors,
+                        //     desc: desc,
+                        //     date: eventDate,
+                        //     form: form,
+                        //     time: time,
+                        //     poster: url
+                        // }).then(res => {
+                        //     $('.register__events').css({ opacity: '1' })
+                        //     $('#loadingUpload').hide()
+                        //     history.push('/admin')
+                        // })
+                        //     .catch(err => console.log(err))
                     });
             }
         )

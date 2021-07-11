@@ -15,10 +15,16 @@
     display: flex;
     /* flex-direction: column; */
     align-items: center;
-    width: 100%;
-    background-color: rgb(1, 12, 38) ;
+    width: -webkit-fill-available !important;
+background-color: rgb(1, 12, 38) ;
     color: white;
     min-height: 100vh;
+}
+.whole_singleEvent{
+    width:100%;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
 }
 
 .event-leftDiv{
@@ -35,12 +41,16 @@
 .event-leftDiv > h1{
     padding: 50px 10%;
     width: fit-content;
+    font-family: "RocknRoll One", sans-serif;
+  
 }
 
 .single-event p {
     /* width: 50vw; */
     margin: 5% 10px;   
     font-family: 'Noto Sans', sans-serif;
+    color: #85aeca;
+    text-align: justify;
     font-weight: 500;
     line-height: 2rem;
 }
@@ -63,7 +73,6 @@
 
 .event-leftDiv #carousel{
     width: 80% !important;
-    margin: auto;
 }
 
 .right-downStats{
@@ -77,9 +86,12 @@
 @media (max-width: 1007px)  {
 
     .single-event{
+        width: -webkit-fill-available !important;
         flex-direction: column;
     }
-
+    .whole_singleEvent{
+        width:100%;
+    }
     .single-event p {
         width: 90%;
         font-size: 14px;
@@ -87,4 +99,9 @@
     .single-event img {
         height: 250px;
     }
+    .single_small{
+        color:wheat;
+        font-size:90%;
+    }
+    
 }
