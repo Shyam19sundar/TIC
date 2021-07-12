@@ -320,8 +320,6 @@ function Home() {
         )
     }, [])
 
-    console.log(nextHolder);
-    console.log(finished)
     //Horizontal Scroll
     // useEffect(() => {
     //     gsap.to(sections, {
@@ -770,7 +768,7 @@ function Home() {
                 <div className="contact-modal">
                     <div className="contact-question">
                         Does IoT interest you ???
-                        </div>
+                    </div>
                     <hr />
                     {
                         (yes == false && no == false) ? (
@@ -796,8 +794,8 @@ function Home() {
                                     Ooohhh...Well we think that our &nbsp;
                                     <Link to="/resources">
                                         Resources Section
-                                        </Link>
-                                        &nbsp; may help you
+                                    </Link>
+                                    &nbsp; may help you
                                     elevate your interests...
                                 </div>
                             )

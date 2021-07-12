@@ -1,107 +1,174 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap");
 
 @font-face {
-    font-family: 'iot';
-    src:local('iot'),url(../fonts/membra.ttf)
+  font-family: "iot";
+  src: local("iot"), url(../fonts/membra.ttf);
 }
 @font-face {
-    font-family: 'iot2';
-    src: local('iot2'),url(../fonts/Park\ Tech\ CG\ Light.ttf)
+  font-family: "iot2";
+  src: local("iot2"), url(../fonts/Park\ Tech\ CG\ Light.ttf);
 }
 .carousel-indicators {
-    background-color: transparent;
+  background-color: transparent;
 }
 .single-event {
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-    width: -webkit-fill-available !important;
-background-color: rgb(1, 12, 38) ;
-    color: white;
-    min-height: 100vh;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  width: -webkit-fill-available !important;
+  background-color: rgb(1, 12, 38);
+  color: white;
+  min-height: 100vh;
 }
-.whole_singleEvent{
-    width:100%;
-    display: flex;
-    /* flex-direction: column; */
-    align-items: center;
-}
-
-.event-leftDiv{
-    flex: 0.5;
-    padding: 30px;
+.whole_singleEvent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
 }
 
-.event-rightDiv{
-    flex: 0.5;
-    padding: 30px;
-    height: 100%;
+.event-leftDiv {
+  flex: 0.5;
+  width: 100%;
+  padding: 30px;
 }
 
-.event-leftDiv > h1{
-    padding: 50px 10%;
-    width: fit-content;
-    font-family: "RocknRoll One", sans-serif;
-  
+.event-rightDiv {
+  flex: 0.5;
+  width: 100%;
+  margin-top: 5%;
+  padding: 30px;
+  /* padding-top: 0;
+  padding-left: 0; */
+  height: 100%;
+}
+
+.event-leftDiv > h1 {
+  padding: 50px 10%;
+  padding-top: 0px;
+  padding-left: 0px;
+  width: fit-content;
+  font-family: "RocknRoll One", sans-serif;
 }
 
 .single-event p {
+  /* width: 50vw; */
+  margin: 5% 10px;
+  font-family: "Noto Sans", sans-serif;
+  color: #c9daf9;
+  text-align: justify;
+  font-weight: 500;
+  line-height: 2rem;
+}
+.single-event h3 {
+  margin: 20px 10px;
+  font-family: "Poppins", sans-serif;
+}
+.single-event h1 {
+  color: rgb(255, 255, 255);
+  font-family: "RocknRoll One", sans-serif;
+  font-weight: 200;
+  font-size: 1.8vw;
+
+  margin-top: 5%;
+  /* margin: 20px; */
+  text-align: center;
+}
+
+.event-leftDiv .carousel {
+  padding: 0% !important;
+}
+
+.event-leftDiv #carousel {
+  width: 80% !important;
+}
+
+.right-downStats {
+  margin-top: 10% !important;
+  margin: 0% 10px;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 75px 75px 75px;
+}
+.single_small {
+  color: wheat;
+  font-size: 1vw;
+}
+.single_span {
+  color: white;
+  font-size: 0.9vw;
+  margin-top: 3vh;
+}
+
+@media (max-width: 1100px) {
+  .single-event {
+    width: -webkit-fill-available !important;
+    flex-direction: column;
+  }
+  .whole_singleEvent {
+    flex-direction: column;
+    width: 100%;
+  }
+  .single-event h1 {
+    width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  .single-event h1 {
+    font-size: 35px;
+  }
+  .event-rightDiv {
+    margin-top: 0px;
+    padding: 30px;
+  }
+  .event-leftDiv > h1 {
+    padding: 50px 10%;
+  }
+
+  .single-event p {
+    width: 90%;
+    font-size: 14px;
+  }
+  .single-event img {
+    height: 250px;
+  }
+  .single_small {
+    color: wheat;
+    font-size: 90%;
+  }
+  .event-leftDiv #carousel {
+    width: 100% !important;
+  }
+  .single-event p {
     /* width: 50vw; */
-    margin: 5% 10px;   
-    font-family: 'Noto Sans', sans-serif;
+    width: 100%;
+    margin: 0;
+    /* display: flex !important;
+    justify-content: center !important;
+    align-items: center !important; */
+    font-family: "Noto Sans", sans-serif;
     color: #85aeca;
     text-align: justify;
     font-weight: 500;
     line-height: 2rem;
+  }
 }
-.single-event h3 {
-    margin: 20px 10px;
-    font-family: 'Poppins', sans-serif;
-}
-.single-event h1 {
-    color: rgb(255, 255, 255);
-    font-family: 'RocknRoll One', sans-serif;
-    font-weight: 200;
+@media (max-width: 600px) {
+  .single_span {
+    font-size: 4vw;
+  }
+  .single-event h1 {
     font-size: 35px;
-    /* margin: 20px; */
-    text-align: center;
-}
-
-.event-leftDiv .carousel{
-    padding: 0% !important;
-}
-
-.event-leftDiv #carousel{
-    width: 80% !important;
-}
-
-.right-downStats{
-    margin-top: 10% !important;
-    margin: 0% 10px;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 75px 75px 75px;
-}
-
-@media (max-width: 1007px)  {
-
-    .single-event{
-        width: -webkit-fill-available !important;
-        flex-direction: column;
-    }
-    .whole_singleEvent{
-        width:100%;
-    }
-    .single-event p {
-        width: 90%;
-        font-size: 14px;
-    }
-    .single-event img {
-        height: 250px;
-    }
-    .single_small{
-        color:wheat;
-        font-size:90%;
-    }
-    
+  }
+  .event-leftDiv > h1 {
+    padding: 50px 10%;
+    padding-top: 70px;
+    padding-bottom: 0px;
+  }
+  .event-rightDiv {
+    margin-top: 0px;
+    padding: 30px;
+  }
 }

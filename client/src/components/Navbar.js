@@ -10,24 +10,8 @@ function Navbar() {
     const [path, setpath] = useState("");
     useEffect(() => {
         setpath(window.location.hash);
-        console.log(path)
-        if (path.includes('home')) {
-            $(".headerFull").css("borderBottom", "none");
-            $(".inside-nav-home").css("borderBottom", "1px solid white");
-        } else if (path.includes('events')) {
-            $(".headerFull").css("borderBottom", "2px solid white");
-            $("inside-nav-event").css("borderBottom", "1px solid white");
-        } else if (path.includes('clusters')) {
-            $(".headerFull").css("borderBottom", "2px solid white");
-            $("inside-nav-cluster").css("borderBottom", "1px solid white");
-        } else if (path.includes('resources')) {
-            $(".headerFull").css("borderBottom", "2px solid white");
-            $("inside-nav-res").css("borderBottom", "1px solid white");
-        } else if (path.includes('contact')) {
-            $(".headerFull").css("borderBottom", "2px solid white");
-            $("inside-nav-contact").css("borderBottom", "1px solid white");
-        }
-    }, [window.location.hash]);
+    }, [])
+
 
 
     const handleMenu = () => {
@@ -41,6 +25,7 @@ function Navbar() {
         $("#navbar-cancel").hide();
     };
     const handleClick = () => {
+        setpath(window.location.hash)
         if (window.screen.width < 770) {
             $(".menu-items").toggle(".show-menu");
             $("#navbar-burger").show();
@@ -53,32 +38,32 @@ function Navbar() {
             <ClearIcon id="navbar-cancel" onClick={() => handleCancel()} />
             <div className="menu-items">
                 <div>
-                    <Link to="/" className="inside-nav inside-nav-home" onClick={handleClick}>
+                    <Link to="/" className={path.includes("home") ? `inside-nav inside-nav-home active` : `inside-nav inside-nav-home passive`} onClick={() => handleClick()}>
                         Home
-          </Link>
+                    </Link>
                 </div>
                 <div>
-                    <Link to="/events" className="inside-nav inside-nav-event" onClick={handleClick}>
+                    <Link to="/events" className={path.includes("events") ? `inside-nav inside-nav-event active` : `inside-nav inside-nav-event passive`} onClick={() => handleClick()}>
                         Events
-          </Link>
+                    </Link>
                 </div>
                 <div>
-                    <Link to="/clusters" className="inside-nav inside-nav-cluster" onClick={handleClick}>
+                    <Link to="/clusters" className={path.includes("clusters") ? `inside-nav inside-nav-cluster active` : `inside-nav inside-nav-clusters passive`} onClick={() => handleClick()}>
                         Clusters
-          </Link>
+                    </Link>
                 </div>
                 <div>
-                    <Link to="/resources" className="inside-nav inside-nav-res" onClick={handleClick}>
+                    <Link to="/resources" className={path.includes("resources") ? `inside-nav inside-nav-res active` : `inside-nav inside-nav-res passive`} onClick={() => handleClick()}>
                         Resources
-          </Link>
+                    </Link>
                 </div>
                 <div>
-                    <Link to="/contact" className="inside-nav inside-nav-contact" onClick={handleClick}>
+                    <Link to="/contact" className={path.includes("contact") ? `inside-nav inside-nav-contact active` : `inside-nav inside-nav-contact passive`} onClick={() => handleClick()}>
                         Contact
-          </Link>
+                    </Link>
                 </div>
             </div>
-            {(path.includes("home")) ? <ScrollIndicator /> : ""}
+            {/* {(path.includes("home")) ? <ScrollIndicator /> : ""} */}
         </div>
     );
 }
