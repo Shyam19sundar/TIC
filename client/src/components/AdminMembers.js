@@ -7,7 +7,7 @@ import { Modal, Button } from "@material-ui/core";
 
 function AdminMembers() {
 
-    const [batch, setbatch] = useState()
+    const [batch, setbatch] = useState(null)
     const breakPoints = [
         { width: 1, itemsToShow: 1 },
         { width: 550, itemsToShow: 2, itemsToScroll: 2, pagination: false },
@@ -24,13 +24,11 @@ function AdminMembers() {
                 if (res.status === 204) {
                     setbatch(null)
                 } else {
-                    setbatch(res.data)
+                    // setbatch(res.data)
                 }
             })
             .catch(err => console.log(err))
     }, [])
-
-    console.log(batch)
 
     return (
         <div className="admin-membersFull">

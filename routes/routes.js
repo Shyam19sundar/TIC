@@ -266,44 +266,32 @@ router.get('/single-event', (req, res) => {
     })
 })
 
-router.get('/current-batch-members', (req, res) => {
-    var d = new Date()
-    month = d.getMonth()
-    year = d.getFullYear()
-    FormatCluster.find({}, (err, found) => {
-        if (!err) {
-            if (found.length !== 0) {
-                console.log("1")
-                found.map(singleBatch => {
-                    let startingYear = singleBatch.year.substring(0, 4)
-                    let endingYear = singleBatch.year.substring(7, 11)
-                    if (month > 5) {
-                        console.log("2")
-                        if (year == startingYear) {
-                            console.log("3")
-                            res.send(singleBatch)
-                        } else {
-                            console.log("4")
-                            res.status(204);
-                        }
-                    } else {
-                        console.log("5")
-                        if (year == endingYear) {
-                            console.log("6")
-                            res.send(singleBatch)
-                        } else {
-                            console.log("7")
-                            res.status(204);
-                        }
-                    }
-                })
-            } else {
-                console.log("8")
-                res.status(204).send('No Members')
-            }
-        }
-    })
-})
+// router.get("/current-batch-members", (req, res) => {
+//     var d = new Date();
+//     month = d.getMonth();
+//     year = d.getFullYear();
+//     FormatCluster.find({}, (err, found) => {
+//         // console.log(found);
+//         if (!err) {
+//             if (found.length !== 0) {
+//                 found.map((singleBatch) => {
+//                     let startingYear = singleBatch.year.substring(0, 4);
+//                     let endingYear = singleBatch.year.substring(7, 11);
+//                     if (month > 5) {
+//                         if (year == startingYear || year == endingYear) {
+//                             res.send(singleBatch);
+//                         } else {
+//                             res.send("No Members in Current Batch");
+//                         }
+//                     }
+//                 });
+//             } else {
+//                 res.status(204).send("No Members");
+//             }
+//         }
+//     });
+// });
+
 
 router.post("/new-member", auth, (req, res) => {
     var count = 0;

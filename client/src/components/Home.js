@@ -998,7 +998,7 @@ function Home() {
                                 <small>Visit Portfolio <LaunchIcon /></small>
                             </div>
                             <div className="dd-team">
-                                <img src="shakthi.jpg" width="100px" height="100px" />
+                                <img src="shakthi.png" width="100px" height="100px" />
                                 <p>SHAKTHI GANESH R</p>
                                 <div className="dd-teamIcons">
                                     <GitHubIcon style={{ color: '#ad27b4' }} />
@@ -1007,7 +1007,7 @@ function Home() {
                                 <small>Visit Portfolio <LaunchIcon /></small>
                             </div>
                             <div className="dd-team">
-                                <img src="roshan.jpg" width="100px" height="100px" />
+                                <img src="roshan.png" width="100px" height="100px" />
                                 <p>ROSHAN V</p>
                                 <div className="dd-teamIcons">
                                     <GitHubIcon style={{ color: '#ad27b4' }} />
@@ -1016,7 +1016,7 @@ function Home() {
                                 <small>Visit Portfolio <LaunchIcon /></small>
                             </div>
                             <div className="dd-team">
-                                <img src="mani.jpg" width="100px" height="100px" />
+                                <img src="mani.png" width="100px" height="100px" />
                                 <p>MANIKANDAN R</p>
                                 <div className="dd-teamIcons">
                                     <GitHubIcon style={{ color: '#ad27b4' }} />
@@ -1025,7 +1025,7 @@ function Home() {
                                 <small>Visit Portfolio <LaunchIcon /></small>
                             </div>
                             <div className="dd-team">
-                                <img src="shyam.jpg" width="100px" height="100px" />
+                                <img src="shyam.png" width="100px" height="100px" />
                                 <p>SHYAM SUNDAR B</p>
                                 <div className="dd-teamIcons last-phone">
                                     <GitHubIcon style={{ color: '#ad27b4' }} />
