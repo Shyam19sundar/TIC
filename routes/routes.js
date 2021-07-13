@@ -273,24 +273,32 @@ router.get('/current-batch-members', (req, res) => {
     FormatCluster.find({}, (err, found) => {
         if (!err) {
             if (found.length !== 0) {
+                console.log("1")
                 found.map(singleBatch => {
                     let startingYear = singleBatch.year.substring(0, 4)
                     let endingYear = singleBatch.year.substring(7, 11)
                     if (month > 5) {
+                        console.log("2")
                         if (year == startingYear) {
+                            console.log("3")
                             res.send(singleBatch)
                         } else {
-                            res.status(204).send('No Members in Current Batch')
+                            console.log("4")
+                            res.status(204);
                         }
                     } else {
+                        console.log("5")
                         if (year == endingYear) {
+                            console.log("6")
                             res.send(singleBatch)
                         } else {
-                            res.status(204).send('No Members in Current Batch')
+                            console.log("7")
+                            res.status(204);
                         }
                     }
                 })
             } else {
+                console.log("8")
                 res.status(204).send('No Members')
             }
         }
@@ -526,23 +534,23 @@ router.post('/verify-and-change-password', (req, res) => {
     })
 })
 
-router.post("/signup", (req, res) => {
-    // const email = req.body.email;
-    // const pass = req.body.password;
-    const email = 'iotclubsastra@gmail.com'
-    const pass = 'iot@Sastra21'
-    bcrypt.genSalt(10, function (err, salt) {
-        bcrypt.hash(pass, salt, function (err, hash) {
-            if (!err) {
-                Admin.create({
-                    email: email,
-                    password: hash
-                })
-                res.send("Created")
-            } else res.send("error in hash gen");
-        });
-    });
-})
+// router.post("/signup", (req, res) => {
+//     const email = req.body.email;
+//     const pass = req.body.password;
+//     const email = 'iotclubsastra@gmail.com'
+//     const pass = 'Muppala'
+//     bcrypt.genSalt(10, function (err, salt) {
+//         bcrypt.hash(pass, salt, function (err, hash) {
+//             if (!err) {
+//                 Admin.create({
+//                     email: email,
+//                     password: hash
+//                 })
+//                 res.send("Created")
+//             } else res.send("error in hash gen");
+//         });
+//     });
+// })
 
 // Catch any bad requests
 router.get('*', (req, res) => {

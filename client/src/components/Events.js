@@ -117,7 +117,7 @@ function Events() {
                             <Bounce left={(index % 2 === 0) ? propLeft : null} right>
                                 <div className='timeline_item'>
                                     <img src={!singleEvent.event_images[0] ? '../images/events-sample.jpg' : singleEvent.event_images[0]} />
-                                    <span>{returnTime(singleEvent.event_date)}</span>
+                                    <span>{returnDate(singleEvent.event_date) + ' ' + returnMonth(singleEvent.event_date)}</span>
                                     <div>
                                         <h3>{singleEvent.event_name}</h3>
                                         <p>{singleEvent.event_desc}</p>

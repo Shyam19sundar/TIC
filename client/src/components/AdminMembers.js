@@ -30,6 +30,8 @@ function AdminMembers() {
             .catch(err => console.log(err))
     }, [])
 
+    console.log(batch)
+
     return (
         <div className="admin-membersFull">
             <div className="dashboard-navbar">

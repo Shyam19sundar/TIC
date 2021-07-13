@@ -13,8 +13,30 @@ import Resources from "./components/Resources.js";
 import Clusters from "./components/Clusters.js"
 import Final from "./components/Final";
 import Navbar from "./components/Navbar";
+import { useEffect, useState } from 'react'
+import { hasAccess } from './components/Access'
+import Cookies from 'js-cookie'
 
 function App() {
+
+  const [refresh, setrefresh] = useState(false)
+
+  useEffect(() => {
+    accessAdmin()
+  }, [])
+
+
+  const accessAdmin = async () => {
+    let accessToken = Cookies.get("access");
+    let refreshToken = Cookies.get("refresh");
+    const access = await hasAccess(accessToken, refreshToken);
+    if (!access) {
+      console.log("You are not authorized");
+    } else {
+      setrefresh(true)
+    }
+  };
+  console.log(refresh)
   return (
     <div className="App">
       <style>
@@ -30,10 +52,6 @@ function App() {
       <Router>
 
         <Switch>
-          <Route path="/" exact>
-
-            <Redirect to="/home"></Redirect>
-          </Route>
           <Route path="/home" exact>
             <Navbar />
             <Home />
@@ -41,6 +59,7 @@ function App() {
           <Route path="/resources" exact >
             <Resources />
           </Route>
+
           <Route path="/events" exact>
             <Navbar />
             <Events />
@@ -61,7 +80,12 @@ function App() {
           <Route path="/contact">
             <Navbar />  <Final />
           </Route>
-          <Route path="/admin" exact component={Admin} />
+          {refresh ?
+            <Route path="/admin" exact component={Admin} /> : null
+          }
+          <Route path="/">
+            <Redirect to="/home"></Redirect>
+          </Route>
         </Switch>
       </Router>
     </div>

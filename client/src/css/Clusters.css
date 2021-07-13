@@ -30,8 +30,8 @@
     grid-template-columns: 50% 50%;
     grid-template-rows: 80% 20%; */
     padding: 100px 20px 20px 20px;
-    margin: 0px 10vw 0 10vw;
-    height: 60vh;
+    /* margin: 0px 10vw 0 10vw; */
+    height: 110vh;
     align-items: center;
     /* border-bottom: 2px solid white; */
     row-gap: 20px;
@@ -45,10 +45,14 @@
 }
 
 .cluster-domains{
+    z-index: 10000;
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%; 
     width: 100%;
+    margin-top: 20px;
     /* gap: 20px; */
+    padding-bottom: 5%;
+    border-bottom: 2px solid rgb(150, 150, 150);
 }
 
 .cluster-domains > div p{
@@ -90,7 +94,7 @@
 .clusters-time {
     width: fit-content;
     /* margin: auto; */
-    margin-top: 7%;
+    margin-top: 2%;
     display: flex;
     grid-column: 1/ span 2;
     align-items: center;
@@ -124,12 +128,69 @@ font-family: "Poppins" , sans-serif;
     /* height: 100%; */
 }
 
+.details-left{
+    width: 80%;
+    display: flex;
+    margin-top: 40px;
+}
+
+.contact_profile1 > p , .contact_profile2 > p{
+    margin-top: 1%;
+    font-family: "Noto Sans" , sans-serif;
+    font-size: 12px;
+  }
+
+  .contact_profile1>img{
+      border-radius: 50%;
+      margin-bottom: 5%;  
+    }
+    .contact_profile2>img{
+      border-radius: 50%;
+      margin-bottom: 5%;
+    }
+    .contact_profile1{
+      width: 20vw;
+      height: fit-content;
+      text-align: center;
+      margin: auto;
+    }
+    .contact_profile1>div{
+      /* padding-top: 15px; */
+     font-size: large;
+     font-weight: 700;
+     font-family: "RockNRoll One", sans-serif;
+    }
+    .contact_profile2>div{
+      /* padding-top: 15px; */
+      /* padding-left: 10px; */
+      font-family: "RockNRoll One", sans-serif;
+      font-size: large;
+      font-weight: 700;
+    }
+    
+    .contact_profile2{
+      width: 20vw;
+      height: fit-content;
+      /* padding-top: 35px; */
+      margin: auto;
+      text-align: center;
+    }
+    .contact_profile2>h4{
+      padding-top: 15px;
+    }
+
 @media (max-width: 1007px) {
     .batch-flex-container {
         /* flex: 1; */
         /* align-items: flex-start; */
         /* justify-content: flex-start; */
         flex-direction: column;
+    }
+}
+
+@media(min-width: 769px) and (max-width: 1200px){
+    .clusters-contentTop{
+        width: 100%;
     }
 }
 
@@ -150,7 +211,7 @@ font-family: "Poppins" , sans-serif;
 
        .cluster-rightLines , .cluster-leftLines{
            z-index: 0 !important;
-           top: 20%;
+           top: 30%;
            opacity: 0.6;
            /* width: 30%; */
            height: 100vh;
@@ -165,7 +226,21 @@ font-family: "Poppins" , sans-serif;
            z-index: 10 !important;
            margin: 0% !important;
            padding: 0%;
-           height: 35vh;
+           height: 65vh;
+       }
+
+       .clusters-contentTop > h1{
+           margin-top: 100px !important;
+           margin-bottom: 0px !important;
+       }
+
+       .details-left{
+           margin-top: 0px !important;
+       }
+
+       .contact_profile1 > img, .contact_profile2 > img{
+           width: 90px !important;
+           height: 90px !important;
        }
 
        .cluster-domains{
@@ -175,6 +250,7 @@ font-family: "Poppins" , sans-serif;
            column-gap: 20px;
            padding: 10px;
            display: none;
+           /* margin-bottom: 5%; */
        }
 
        .team-members{

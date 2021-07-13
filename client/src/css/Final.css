@@ -1,8 +1,9 @@
 .main{
   overflow-x: hidden;
-  /* overflow-y: hidden; */
-  padding-top: 100px;
+  overflow-y: hidden;
+  height: 100vh;
   position: relative;
+  padding-top: 100px;
   background: linear-gradient(rgb(1, 12, 38) 0% 70%, rgba(0, 70, 117, 0.6));
 }
 
@@ -16,6 +17,13 @@ top: 30%;
 left: 5%;
 }
 
+.contact_first{
+  display: flex;
+  padding-top: 100px;
+  height: 100vh;
+  /* overflow: hidden; */
+}
+
 .contact_navbar{
   background-color:rgb(0, 204, 255);
   width: 100vw;
@@ -24,50 +32,70 @@ left: 5%;
   padding: 10px;
 }
 .contact_left{
-flex: 0.5;
+  /* margin-top: -50px; */
+flex: 0.45;
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
   /* width: 50vw; */
   /* height: 93vh; */
 }
 .contact_us{
+  /* padding-top: 100px; */
 font-family: "RockNRoll One", sans-serif;
-  font-size: 6vh;
+  font-size: 8vh;
   color: white;
   /* padding-top: 50px;
   padding-left: 200px; */
   width: fit-content;
-  margin-left: 10vw;
+  /* margin-left: 10vw; */
+  /* margin: auto; */
+}
+.contact-info{
+  justify-self: flex-end;
+  margin-left: 12vw;
+  margin-top: 10%;
+  text-align: right;
+  color: rgb(192,192,192);
+  font-family: "Poppins",sans-serif;
 }
 .contact_newsletter{
-  /* margin-top: 100px;
-  margin-left: 80px; */
+  /* margin-top: 5%; */
+  /* margin-left: 80px; */
   /* margin: auto; */
   color: rgb(0, 0, 0);
+  /* position: relative; */
+  /* margin-left: 60%;
+  transform: translate(-60%); */
 }
-.contact_input>h3{
+.contact_input>h4{
   /* margin-top: 55px;
   margin-bottom: 10%; */
  text-align: center;
  width: fit-content;
  margin: auto;
- font-family: "RockNRoll One", sans-serif;
+ font-family: "Poppins", sans-serif;
  margin-top: 5% !important;
 }
 .contact_input{
   /* border: 2px solid white; */
   width: 33vw;
-  height: 60vh;
+  height: 42vh;
   border-radius: 10px;
   /* margin-left: 10px;
   margin-top: -40px; */
   margin: auto;
-  padding: 30px;
-  background-color: #6eaeda;
+  padding: 25px;
+  background-color: #383838;
+  color: white !important;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
 }
 .contact_input>input{
   /* margin-top:25px;
   margin-left:100px; */
   /* margin: auto; */
-  margin-top: 15%;
+  margin-top: 10%;
   margin-left: 50%;
   transform: translateX(-50%);
   width: 20vw;
@@ -84,9 +112,9 @@ font-family: "RockNRoll One", sans-serif;
   padding: 3px 7px;
   text-align: center;
   border-radius: 5px;
-  background-color: #000000;
+  background-color: #ffd270;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 .contact_input>p{
   text-align: center;
@@ -98,17 +126,46 @@ font-family: "RockNRoll One", sans-serif;
   padding-right: 10px; */
 }
 
-.contact_first{
-      padding-top: 5%;
-    display: flex;
-    color: white;
-    margin-bottom: 10vh;
+/* .mail-query{
+  width: fit-content;
+  font-family: "Noto Sans", sans-serif;
+  color: white !important;
+  margin-left: 50%;
+  transform: translateX(-50%);
+  margin-top: 50px;
+  font-size: 13px;
+} */
+
+.mail-query > a{
+  color: white !important;
+  letter-spacing: 1px;
+  /* text-decoration: underline;
+  text-decoration-color: white !important; */
+  margin-top: 2px;
+  border-bottom: 1px solid rgb(150,150,150);
 }
+
 .contact_right{
-  flex: 0.5;
+  flex: 0.55;
   /* width: 40vw; */
   height: 93vh;
   height: fit-content;
+  position: relative;
+  height: 100%;
+}
+.contact-phone{
+  position: absolute;
+  left: -5%;
+  bottom: 50px;
+  opacity: 0.5;
+  /* transform: scaleX(-1); */
+}
+.contact-satellite{
+  position: absolute;
+  top: -20%;
+  right: 0%;
+  transform: rotate(10deg);
+  opacity: 0.5;
 }
 #contact_icon{
   /* margin-top: 25px;
@@ -117,6 +174,7 @@ font-family: "RockNRoll One", sans-serif;
   display: flex;
   justify-content: space-around;
   width: 60%;
+  margin-bottom: 25px;
   /* margin: auto; */
 }
 
@@ -134,7 +192,7 @@ font-family: "RockNRoll One", sans-serif;
   margin: 20px;
  
 }.iconimage{
-  width: 40px ;
+  width: 50px ;
 }
 
 .contact_svg{
@@ -161,9 +219,17 @@ font-family: "RockNRoll One", sans-serif;
 .contact_email , .contact_main{
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
+  margin-top: 10%;
+  /* justify-content: space-evenly; */
+  align-items: flex-end;
+  color: white !important;
+  font-family: "Poppins", sans-serif;
+
 }
+
+/* .contact-email > p{
+  color: white !important;
+} */
 
 .contact-email, .contact-location{
   font-size: 50px !important;
@@ -184,7 +250,7 @@ font-family: "RockNRoll One", sans-serif;
 }
 .contact_email>p , .contact_main > p{
     /* margin-left: 35px; */
-    font-size: 15px;
+    /* font-size: 15px; */
 }
 .location{
   font-size: 35px;
@@ -199,62 +265,14 @@ font-family: "RockNRoll One", sans-serif;
     color: white;
   }
 
-  .details-left , .details-right{
-    flex: 0.5;
-  }
-
   .contact_footer{
-    margin-top: 3%;
+    /* margin-top: 3%; */
     font-family: "Poppins" , sans-serif;
     font-size: 12px;
       text-align: center;
       color: white;
   }
-
-  .contact_profile1 > p , .contact_profile2 > p{
-    margin-top: 1%;
-    font-family: "Noto Sans" , sans-serif;
-    font-size: 12px;
-  }
-
-  .contact_profile1>img{
-      border-radius: 50%;
-      margin-bottom: 5%;  
-    }
-    .contact_profile2>img{
-      border-radius: 50%;
-      margin-bottom: 5%;
-    }
-    .contact_profile1{
-      width: 20vw;
-      height: fit-content;
-      text-align: center;
-      margin: auto;
-    }
-    .contact_profile1>div{
-      /* padding-top: 15px; */
-     font-size: large;
-     font-weight: 700;
-     font-family: "RockNRoll One", sans-serif;
-    }
-    .contact_profile2>div{
-      /* padding-top: 15px; */
-      /* padding-left: 10px; */
-      font-family: "RockNRoll One", sans-serif;
-      font-size: large;
-      font-weight: 700;
-    }
-    
-    .contact_profile2{
-      width: 20vw;
-      height: fit-content;
-      padding-top: 35px;
-      margin: auto;
-      text-align: center;
-    }
-    .contact_profile2>h4{
-      padding-top: 15px;
-    }
+  
   
     @media(max-width:768px){
         .main{
@@ -268,6 +286,7 @@ font-family: "RockNRoll One", sans-serif;
         .contact_first{
             display: flex;
             flex-direction: column;
+            padding-top: 0px;
         }
         .contact_right{
           width: 100%;
@@ -280,12 +299,33 @@ font-family: "RockNRoll One", sans-serif;
           margin: auto !important;
           width: fit-content;
           height: fit-content;
+          font-size: 3rem;
           /* margin-left: -120px; */
         }
         #contact_icon{
           margin-top: 10%;
           width: 100% !important;
           margin-left: 0% !important;
+        }
+
+        .contact-info{
+          display: none;
+        }
+
+        .contact-phone{
+            bottom: -130%;
+            width: 150px;
+            height: 150px;
+        }
+        
+        .contact-satellite{
+          top: -80%;
+        }
+
+        .contact_email{
+          width: 100%;
+          align-items: center !important;
+          margin-top: 0%;
         }
 
         .contact_svg{
@@ -297,7 +337,7 @@ font-family: "RockNRoll One", sans-serif;
         }
 
         .contact_left{
-          margin-top: 15%;
+          /* margin-top: 15%; */
         }
 
         .iconimage{
@@ -332,7 +372,7 @@ font-family: "RockNRoll One", sans-serif;
         }
        .contact_input{
           width: 320px ;
-          height: 380px;
+          height: 300px;
        }
        .contact_input>h3{
          font-size: large;
@@ -360,7 +400,7 @@ font-family: "RockNRoll One", sans-serif;
       }
       .contact_middle{
         width: 100%;
-        margin-top: -50px;
+        /* margin-top: -50px; */
       }
       .email{
        font-size: small
@@ -380,10 +420,10 @@ font-family: "RockNRoll One", sans-serif;
     .contact_address>div{
       font-size:medium;
      }
-    .contact_email{
+    /* .contact_email{
       width: 180px;
       padding-right: 20px;
-     }
+     } */
      .contact_main{
       width: 150px;
       margin-left: 10px;

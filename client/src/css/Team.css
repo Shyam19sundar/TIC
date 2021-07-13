@@ -64,12 +64,13 @@
 .single-memberFull > p{
     text-align: center;
     font-family: "Poppins" , sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     /* margin-bottom: 30px !important; */
     background: transparent;
     width: fit-content;
     /* margin: auto; */
     color: black;
+    margin-top: 10px;
 }
 
 .single-memberFull  span{
@@ -108,7 +109,7 @@
 }
 
 .cluster-icons  .MuiSvgIcon-root{
-    font-size: 30px;
+    font-size: 25px;
 }
 
 .cluster-icons *{
@@ -127,9 +128,9 @@
     color: white;
 }
 
-.rec-carousel-item *{
+/* .rec-carousel-item *{
     font-size: 15px !important;
-}
+} */
 
 .team-members > div > div{
     height: 100% !important;

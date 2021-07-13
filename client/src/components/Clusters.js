@@ -6,6 +6,11 @@ import '../css/Clusters.css'
 import $ from 'jquery'
 import axios from "../axios"
 import Header from './Header';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import EmailIcon from '@material-ui/icons/Email';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import TwitterIcon from '@material-ui/icons/Twitter';
 
 
 
@@ -55,6 +60,26 @@ function Clusters() {
             <div className="clusters-content">
                 <div className="clusters-contentTop">
                     <h1>Our Team</h1>
+                    <div className="details-left">
+                        <div className="contact_profile1">
+                            <img src="staff1.jpeg" alt="Avatar" width="150px" height="150px" />
+                            <div>R.Anantharaman</div>
+                            <p>CEO | TBI</p>
+                            <div className="icon">
+                                <a href="https://www.linkedin.com/in/r-anantharaman-7b827130"><LinkedInIcon style={{ color: "white" }} /></a>
+                                <a href="https://www.twitter.com/anantha02814741 "> <TwitterIcon style={{ color: "white" }} /></a>
+                            </div>
+                        </div>
+                        <div className="contact_profile2">
+                            <img src="staff2.jpeg" alt="Avatar" width="150px" height="150px" />
+                            <div>K.Fathima</div>
+                            <p>Technical Assistant-TBI</p>
+                            <div className="icon">
+                                <a href="https://www.linkedin.com/in/fathimabasha"><LinkedInIcon style={{ color: "white" }} /></a>
+                                <a href="https://www.twitter.com/fathikamal27"> <TwitterIcon style={{ color: "white" }} /></a>
+                            </div>
+                        </div>
+                    </div>
                     <div className="cluster-domains">
                         <div><p>Web Development</p></div>
                         <div><p>App Development</p></div>

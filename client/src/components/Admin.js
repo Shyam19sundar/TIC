@@ -134,6 +134,7 @@ function Admin() {
             background: 'rgba(0, 0, 0, 0.3)'
         }
     }
+
     return (
         <div className="admin-full">
             <div id="mySidenav" className="sidenav">
@@ -143,31 +144,31 @@ function Admin() {
                 <div>
                     <Link to='/admin'>
                         Dashboard
-                </Link>
+                    </Link>
                     <Link to={{
                         pathname: "/admin",
                         search: "?add-events"
                     }}>
                         Add Events
-                </Link>
+                    </Link>
                     <Link to={{
                         pathname: "/admin",
                         search: "?register-events"
                     }}>
                         Register Events
-                </Link>
+                    </Link>
                     <Link to={{
                         pathname: "/admin",
                         search: "?add-cluster"
                     }}>
                         Add Cluster
-                </Link>
+                    </Link>
                     <Link to={{
                         pathname: "/admin",
                         search: "?add-member"
                     }}>
                         Add Member
-                </Link>
+                    </Link>
                 </div>
             </div>
             <Menu className="phone__sidenav" styles={styles}>

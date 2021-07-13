@@ -631,6 +631,10 @@
   z-index: 10;
   margin-left: 100px;
 }
+
+.home-card:nth-child(2) > div > .card-flex{
+  margin-top: 0% !important;
+}
 .home-card:nth-child(3) {
   margin-left: 100px;
   height: 330px;
@@ -1195,6 +1199,172 @@ a {
 .copyrights > div {
   height: fit-content;
   width: 100%;
+}
+
+.hocus-pocus:hover{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.ReactModal__Overlay{
+  background: rgb(1, 12, 38 , 0.6) !important;
+  z-index: 1000;
+}
+
+.ReactModal__Content, .ReactModal__Content *{
+  background-color: #383838 !important;
+}
+
+.ReactModal__Content{
+  position: absolute !important;
+  width: 60%;
+  height: 30vw;
+  border: none !important;
+  left: 50% !important;
+  top: 20% !important;
+  transform: translateX(-50%);
+}
+
+.modal-Header{
+  display: flex;
+  justify-content: space-between;
+  font-family: "Roboto", sans-serif;
+  color: white;
+  padding: 5px;
+  border-bottom: 2px solid white;
+}
+
+.modal-body{
+  padding: 50px 15px 10px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dd-team{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.dd-team > img{
+  border-radius: 100%;
+}
+
+.dd-team > p{
+  margin-top: 20px;
+  color: white;
+  font-family: "Noto Sans", sans-serif;
+  font-size: 15px;
+  /* letter-spacing: 1px; */
+}
+
+.dd-team > small{
+  margin-top: 30px;
+  color: rgb(150, 150, 150);
+  font-family: "Poppins", sans-serif;
+}
+
+.dd-teamIcons{
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+}
+
+.closeModal{
+  position: relative;
+  top: 0%;
+  right: 0%;
+  color: white !important;
+  border: none;
+}
+
+@media(max-width: 1024px){
+  .ReactModal__Content{
+      width: 75%;
+      height: 75%;
+  }
+}
+
+@media(max-width: 769px) and (min-width:450px){
+  .home-card:nth-child(2) > div > h3{
+    font-size: 1.4rem !important;
+}
+.home-card:nth-child(2) .card-desc > p {
+  font-size: 1rem !important;
+}
+/* .home-card:nth-child(1) > div > h3{
+  font-size: 1.3rem !important;
+}
+.home-card:nth-child(3) > div > h3{
+  font-size: 1.3rem !important;
+} */
+.card-topFlex > div > h3{
+  font-size: 1.2rem !important;
+}
+  .modal-body{
+    margin-top: 35px;
+    display: grid !important;
+    grid-template-columns: 33% 33% 33%;
+    row-gap: 75px;
+  }
+  .ReactModal__Content{
+    top: 10% !important;
+  }
+} 
+
+@media(max-width:449px){
+  .home-card:nth-child(2) > div > h3{
+    font-size: 1.4rem !important;
+}
+.home-card:nth-child(2) .card-desc > p {
+  font-size: 1rem !important;
+}
+/* .home-card:nth-child(1) > div > h3{
+  font-size: 1.3rem !important;
+}
+.home-card:nth-child(3) > div > h3{
+  font-size: 1.3rem !important;
+} */
+.card-topFlex > div > h3{
+  font-size: 1.2rem !important;
+}
+  .modal-Header > h2{
+    font-size: 1.5rem !important;
+  }
+  .ReactModal__Content{
+    width: 85%;
+    height: 85%;
+}
+  .modal-body{
+    padding: 10px 10px 10px 10px;
+    margin-top: 35px;
+    display: grid !important;
+    grid-template-columns: 50% 50%;
+    row-gap: 30px;
+  }
+  .ReactModal__Content{
+    top: 10% !important;
+  }
+  .dd-team > img{
+    width: 75px;
+    height: 75px;
+  }
+  .dd-team > p{
+    margin-top: 8px;
+    font-size: 0.8rem;
+  }
+  .dd-team > small{
+    font-size: 0.6rem;
+    margin-top: 20px;
+  }
+  .dd-team:nth-child(5){
+    grid-column: 1/ span 2;
+  }
+  .last-phone{
+    max-width: 117px !important;
+  }
 }
 
 /* Media-Query */

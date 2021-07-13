@@ -16,6 +16,15 @@ import { Link } from 'react-router-dom';
 import axios from "../axios";
 import InfoIcon from '@material-ui/icons/Info';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import Modal from 'react-modal';
+import CloseIcon from '@material-ui/icons/Close';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import LaunchIcon from '@material-ui/icons/Launch';
+import Button from '@material-ui/core/Button';
+import Snackbar from '@material-ui/core/Snackbar';
+import IconButton from '@material-ui/core/IconButton';
+// import CloseIcon from '@material-ui/icons/Close';
 
 function Home() {
 
@@ -32,14 +41,52 @@ function Home() {
     const [no, setno] = useState(false);
 
     const [nextHolder, setnextHolder] = useState();
-    const [finished, setfinished] = useState()
+    const [finished, setfinished] = useState();
+    const [error, seterror] = useState(false);
 
     const addSubscriber = () => {
         axios.post('/subscribe', {
             subscribe: subscribeDetails
-        }).then(res => console.log(res))
+        }).then(res => {
+            if (res.status == 200) {
+                handleClick();
+            } else {
+                seterror(true);
+            }
+        })
             .catch(err => console.log(err))
     }
+
+    //For modal
+    const [modalIsOpen, setIsOpen] = React.useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function afterOpenModal() {
+        // references are now sync'd and can be accessed.
+        // subtitle.style.color = '#f00';
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
+
+    //For Toast
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
 
     useEffect(() => {
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -53,6 +100,7 @@ function Home() {
             $(".headerFull").css("display", "none")
         }
     }, [y])
+
 
     // console.log(scrolled)
 
@@ -320,6 +368,8 @@ function Home() {
         )
     }, [])
 
+    console.log(nextHolder);
+    console.log(finished)
     //Horizontal Scroll
     // useEffect(() => {
     //     gsap.to(sections, {
@@ -476,7 +526,14 @@ function Home() {
                                         <div className="card-topFlex">
                                             <div>
                                                 <h6 className="card-title">Past Event</h6>
-                                                <h3>{finished[0].event_name}</h3>
+                                                {
+                                                    finished[0].event_name.length > 25 ? (
+                                                        <h3 style={{ "font-size": "1.5vw" }}>{finished[0].event_name}</h3>
+                                                    ) : (
+                                                        <h3 style={{ "font-size": "1.5vw" }}>{finished[0].event_name}</h3>
+                                                    )
+                                                }
+                                                {/* <h3>{finished[0].event_name}</h3> */}
                                             </div>
                                             <div className="card-arrow">
                                                 <Link to={`/events/${finished[0]._id}`} ><ArrowForwardIcon /></Link>
@@ -514,9 +571,36 @@ function Home() {
                                 nextHolder ? (
                                     <div>
                                         <h6 className="card-title">Next Event</h6>
-                                        <h3>{nextHolder[0].event_name}</h3>
+                                        {
+                                            nextHolder[0].event_name.length > 25 ? (
+                                                <h3 style={{ "font-size": "1.8vw" }}>{nextHolder[0].event_name}</h3>
+                                            ) : (
+                                                <h3 style={{ "font-size": "1.8vw" }}>{nextHolder[0].event_name}</h3>
+                                            )
+                                        }
+                                        {/* <h3>{nextHolder[0].event_name}</h3> */}
                                         <div className="card-desc">
-                                            <p>{nextHolder[0].event_desc.substr(0, 150)}... <Link to={`/register/${nextHolder[0]._id}`}>READ&nbsp;MORE</Link></p>
+                                            {/* <MediaQuery maxDeviceWidth={1600} device={{ deviceWidth: 1600 }}> */}
+                                            {
+                                                nextHolder[0].event_name.length > 25 ? (
+                                                    // <h3 style={{ "font-size": "1.8vw" }}>{nextHolder[0].event_name}</h3>
+                                                    <p style={{ "font-size": "1vw" }}>{nextHolder[0].event_desc.substr(0, 150)}... <Link to={`/register/${nextHolder[0]._id}`}>READ&nbsp;MORE</Link></p>
+                                                ) : (
+                                                    <p style={{ "font-size": "1vw" }}>{nextHolder[0].event_desc.substr(0, 150)}... <Link to={`/register/${nextHolder[0]._id}`}>READ&nbsp;MORE</Link></p>
+                                                )
+                                            }
+                                            {/* </MediaQuery> */}
+                                            {/* <MediaQuery maxDeviceWidth={1300} minDeviceWidth={900}>
+                                                {
+                                                    window.
+                                                    nextHolder[0].event_name.length > 35 ? (
+                                                        // <p>{nextHolder[0].event_desc.substr(0, 100)}... <Link to={`/register/${nextHolder[0]._id}`}>READ&nbsp;MORE</Link></p>
+                                                        console.log("Greater than 35")
+                                                    ) : (
+                                                        <p>{nextHolder[0].event_desc.substr(0, 120)}... <Link to={`/register/${nextHolder[0]._id}`}>READ&nbsp;MORE</Link></p>
+                                                    )
+                                                }
+                                            </MediaQuery> */}
                                         </div>
                                         <div className="card-flex">
                                             <div>
@@ -555,7 +639,13 @@ function Home() {
                                         <div className="card-topFlex">
                                             <div>
                                                 <h6 className="card-title">Upcoming Event</h6>
-                                                <h3>{nextHolder[1].event_name}</h3>
+                                                {
+                                                    nextHolder[1].event_name.length > 25 ? (
+                                                        <h3 style={{ "font-size": "1.5vw" }}>{nextHolder[1].event_name}</h3>
+                                                    ) : (
+                                                        <h3 style={{ "font-size": "1.5vw" }}>{nextHolder[1].event_name}</h3>
+                                                    )
+                                                }
                                             </div>
                                             <div className="card-arrow">
                                                 <Link to={`/events/${nextHolder[1]._id}`}>
@@ -594,7 +684,13 @@ function Home() {
                                             <div className="card-topFlex">
                                                 <div>
                                                     <h6 className="card-title">Past Event</h6>
-                                                    <h3>{finished[1]?.event_name}</h3>
+                                                    {
+                                                        finished[1].event_name.length > 25 ? (
+                                                            <h3 style={{ "font-size": "1.5vw" }}>{finished[1].event_name}</h3>
+                                                        ) : (
+                                                            <h3 style={{ "font-size": "1.5vw" }}>{finished[1].event_name}</h3>
+                                                        )
+                                                    }
                                                 </div>
                                                 <div className="card-arrow">
                                                     <Link to={`/events/${finished[1]._id}`}><ArrowForwardIcon /></Link>
@@ -833,12 +929,112 @@ function Home() {
                             <div>SASTRA University,<br />Thanjavur</div>
                         </div> */}
                         <div className="design-develop">
-                            <p>Designed and Developed by <label>Hocus Pocus</label></p>
+                            <p>Designed and Developed by <label onClick={openModal} className="hocus-pocus">Hocus Pocus</label></p>
                         </div>
                         <div className="copyrights">
                             <p>© 2021 <label>TIC Club of SASTRA</label></p>
                         </div>
+                        <div>
+                            {
+                                open ? (
+                                    <Snackbar
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                        open={open}
+                                        autoHideDuration={6000}
+                                        onClose={handleClose}
+                                        message="Successfully Subscribed"
+                                        action={
+                                            <React.Fragment>
+                                                <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                                                    <CloseIcon fontSize="small" />
+                                                </IconButton>
+                                            </React.Fragment>
+                                        }
+                                    />
+                                ) : error ? (
+                                    <Snackbar
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'right',
+                                        }}
+                                        open={open}
+                                        autoHideDuration={6000}
+                                        onClose={handleClose}
+                                        message="Oops...Error occurred while subscribing!!"
+                                        action={
+                                            <React.Fragment>
+                                                <IconButton size="small" aria-label="close" color="inherit" onClick={handleClose}>
+                                                    <CloseIcon fontSize="small" />
+                                                </IconButton>
+                                            </React.Fragment>
+                                        }
+                                    />
+                                ) : ""
+                            }
+                        </div>
                     </div>
+                    <Modal
+                        isOpen={modalIsOpen}
+                        onAfterOpen={afterOpenModal}
+                        onRequestClose={closeModal}
+                        // style={customStyles}
+                        contentLabel="Example Modal"
+                    >
+                        <div className="modal-Header">
+                            <h2>The Team</h2>
+                            <button className="closeModal" onClick={closeModal}><CloseIcon /></button>
+                        </div>
+                        <div className="modal-body">
+                            <div className="dd-team">
+                                <img src="ram.png" width="100px" height="100px" />
+                                <p>RAMPRAKASH N</p>
+                                <div className="dd-teamIcons">
+                                    <GitHubIcon style={{ color: '#ad27b4' }} />
+                                    <LinkedInIcon style={{ color: '#2395d3' }} />
+                                </div>
+                                <small>Visit Portfolio <LaunchIcon /></small>
+                            </div>
+                            <div className="dd-team">
+                                <img src="shakthi.jpg" width="100px" height="100px" />
+                                <p>SHAKTHI GANESH R</p>
+                                <div className="dd-teamIcons">
+                                    <GitHubIcon style={{ color: '#ad27b4' }} />
+                                    <LinkedInIcon style={{ color: '#2395d3' }} />
+                                </div>
+                                <small>Visit Portfolio <LaunchIcon /></small>
+                            </div>
+                            <div className="dd-team">
+                                <img src="roshan.jpg" width="100px" height="100px" />
+                                <p>ROSHAN V</p>
+                                <div className="dd-teamIcons">
+                                    <GitHubIcon style={{ color: '#ad27b4' }} />
+                                    <LinkedInIcon style={{ color: '#2395d3' }} />
+                                </div>
+                                <small>Visit Portfolio <LaunchIcon /></small>
+                            </div>
+                            <div className="dd-team">
+                                <img src="mani.jpg" width="100px" height="100px" />
+                                <p>MANIKANDAN R</p>
+                                <div className="dd-teamIcons">
+                                    <GitHubIcon style={{ color: '#ad27b4' }} />
+                                    <LinkedInIcon style={{ color: '#2395d3' }} />
+                                </div>
+                                <small>Visit Portfolio <LaunchIcon /></small>
+                            </div>
+                            <div className="dd-team">
+                                <img src="shyam.jpg" width="100px" height="100px" />
+                                <p>SHYAM SUNDAR B</p>
+                                <div className="dd-teamIcons last-phone">
+                                    <GitHubIcon style={{ color: '#ad27b4' }} />
+                                    <LinkedInIcon style={{ color: '#2395d3' }} />
+                                </div>
+                                <small>Visit Portfolio <LaunchIcon /></small>
+                            </div>
+                        </div>
+                    </Modal>
                 </div>
             </div>
         </div >

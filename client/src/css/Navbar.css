@@ -84,9 +84,3 @@
       /* transition: all 3s;  */
     }
   }
-  .active {
-    border-bottom: 2px solid white;
-  }
-  .passive {
-    border-bottom: none;
-  }

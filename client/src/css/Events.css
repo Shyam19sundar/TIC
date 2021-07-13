@@ -196,6 +196,7 @@
     margin: 10px;
     align-self: center;
 	position: relative;
+    max-width: 400px;
 }
 
 .timeline_item p {
@@ -319,6 +320,19 @@
 
     .right-eventsLines , .left-eventsLines{
         opacity: 0.6;
+    }
+
+    .right-eventsLines{
+        top: 40%;
+        right: -15%;
+    }
+    .left-eventsLines{
+        left: -15%;
+        top: 40%;
+    }
+
+    .no-forth{
+        background-color: #010c26 !important;
     }
 
     .events-upcoming {
